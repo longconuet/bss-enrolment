@@ -1,0 +1,11 @@
+﻿.group-item {
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    padding: 20px 25px;
+    margin-top: 30px;
+}
+
+.required-star {
+    color: red;
+    padding-left: 3px;
+}
