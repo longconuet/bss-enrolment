@@ -1,4 +1,5 @@
 ﻿using Enrolment.Data;
+using Enrolment.Helpers;
 using Enrolment.Models;
 using Enrolment.ModelViews;
 using Enrolment.Requests;
@@ -10,15 +11,18 @@ namespace Enrolment.Services
     public interface IRegisterEmailService
     {
         Task<ServiceResponse<RegisterEmailModel>> RegisterEmail(RegisterEmailRequest request);
+        Task<ServiceResponse> VerifyEmail(string code);
     }
 
     public class RegisterEmailService : IRegisterEmailService
     {
         private readonly ApplicationDbContext _context;
+        private readonly IEmailSenderService _emailSender;
 
-        public RegisterEmailService(ApplicationDbContext context)
+        public RegisterEmailService(ApplicationDbContext context, IEmailSenderService emailSender)
         {
             _context = context;
+            _emailSender = emailSender;
         }
 
         public async Task<ServiceResponse<RegisterEmailModel>> RegisterEmail(RegisterEmailRequest request)
@@ -40,17 +44,20 @@ namespace Enrolment.Services
                             HtmlContent = htmlContent
                         },
                     };
-                }                
+                }
 
                 // create new email
+                string hashCode = FuncHelper.RandomHashString(10);
                 _context.EmailRegisters.Add(new EmailRegister
                 {
                     Email = request.Email,
-                    IsConfirmed = true
+                    IsConfirmed = false,
+                    HashCode = hashCode
                 });
                 await _context.SaveChangesAsync();
 
                 // send verification email
+                await SendVerificationEmail(request.Email, hashCode);
 
                 return new ServiceResponse<RegisterEmailModel>
                 {
@@ -72,6 +79,55 @@ namespace Enrolment.Services
                     Message = e.Message
                 };
             }
+        }
+
+        public async Task<ServiceResponse> VerifyEmail(string code)
+        {
+            try
+            {
+                var email = await _context.EmailRegisters.FirstOrDefaultAsync(x => x.HashCode == code && !x.IsConfirmed && x.IsDeleted == 0);
+                if (email != null)
+                {
+                    email.IsConfirmed = true;
+                    email.ConfirmedAt = DateTime.Now;
+
+                    _context.EmailRegisters.Update(email);
+                    await _context.SaveChangesAsync();
+                }
+
+                return new ServiceResponse
+                {
+                    Status = 1
+                };
+            }
+            catch (Exception e)
+            {
+                return new ServiceResponse
+                {
+                    Status = 0,
+                    Message = e.Message
+                };
+            }
+        }
+
+        private async Task SendVerificationEmail(string email, string code)
+        {
+            await Task.Yield();
+
+            string subject = "Email Address Verification";
+            string content = "";
+
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            var filePath = Path.Combine(path, $"EmailTemplates/VerifyEmail.html");
+            using (StreamReader reader = new(filePath))
+            {
+                content = reader.ReadToEnd();
+            }
+
+            content = content.Replace("{VerifyEmailLink}", $"/Home/VerifyEmail/{code}");
+
+            var message = new Message(new string[] { email }, subject, content);
+            _emailSender.SendEmail(message);
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r8Jec1ewxCa2P57Te05rASloTMlyq4F/xhOOFiU80wY=",
+  "Hash": "y+uKG0lg8oOMee52Is7oEq7m3ysTQAqIMpORgymcY4s=",
   "Source": "Enrolment",
   "BasePath": "_content/Enrolment",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\git-bss\\Enrolment\\Enrolment\\wwwroot\\js\\standardInfo.js",
+      "SourceId": "Enrolment",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\git-bss\\Enrolment\\Enrolment\\wwwroot\\",
+      "BasePath": "_content/Enrolment",
+      "RelativePath": "js/standardInfo.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\standardInfo.js"
     },
     {
       "Identity": "D:\\git-bss\\Enrolment\\Enrolment\\wwwroot\\js\\studentDetail.js",

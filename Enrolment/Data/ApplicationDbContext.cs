@@ -12,15 +12,31 @@ namespace Enrolment.Data
         }
 
         public DbSet<EmailRegister> EmailRegisters { set; get; }
+        public DbSet<Payee> Payees { set; get; }
+        public DbSet<Payer> Payers { set; get; }
+        public DbSet<Employee> Employees { set; get; }
+        public DbSet<Employer> Employers { set; get; }
 
+
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    base.OnModelCreating(builder);
+        //}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<EmailRegister>(entity =>
-            {
-                entity.ToTable(name: "EmailRegister");
-            });
+
+            // configures one-to-many relationship
+            //builder.Entity<EmailRegister>()
+            //    .HasOme(s => s.Payer)
+            //    .WithOn(g => g.CourseStudents)
+            //    .HasForeignKey(s => s.CourseId);
+
+            //builder.Entity<CourseStudent>()
+            //   .HasOne(s => s.Student)
+            //   .WithMany(g => g.CourseStudents)
+            //   .HasForeignKey(s => s.StudentId);
         }
     }
 }

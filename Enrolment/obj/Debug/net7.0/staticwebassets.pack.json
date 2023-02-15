@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "D:\\git-bss\\Enrolment\\Enrolment\\wwwroot\\js\\standardInfo.js",
+      "PackagePath": "staticwebassets\\js\\standardInfo.js"
+    },
+    {
       "Id": "D:\\git-bss\\Enrolment\\Enrolment\\wwwroot\\js\\studentDetail.js",
       "PackagePath": "staticwebassets\\js\\studentDetail.js"
     },

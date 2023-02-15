@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Verify Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6" id="email-content">
+        @if (ViewBag.IsValidEmail)
+        {
+            @if (ViewBag.HasConfirmedYet)
+            {
+                <div class="alert alert-warning" role="alert">
+                    Your email was verified before!
+                </div>
+                <div style="float: right">
+                    <a id="continue" type="button" class="btn btn-primary" asp-controller="Home" asp-action="StudentDetail" asp-route-code="@ViewBag.Code">Continue</a>
+                </div>
+            }
+            else
+            {
+                @if (ViewBag.HasError == false)
+                {
+                    <div class="alert alert-success" role="alert">
+                        Your email is verified successfully!
+                    </div>
+                    <div style="float: right">
+                        <a id="continue" type="button" class="btn btn-primary" asp-controller="Home" asp-action="StudentDetail" asp-route-code="@ViewBag.Code">Continue</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-danger" role="alert">
+                        Something went wrong!
+                    </div>
+                }
+            }
+        }
+        else
+        {
+            <div class="alert alert-danger" role="alert">
+                Your email is invalid!
+            </div>
+        }        
+    </div>
+</div>

@@ -18,12 +18,13 @@
 
 function registerEmail() {
     if ($("#register-email-form").valid()) {
+        var email = $('#email').val()
         var postData = {
-            Email: $('#email').val()
+            Email: email
         };
 
         $.ajax({
-            url: "/Home/ConfirmEmail",
+            url: "/Home/RegisterEmail",
             data: JSON.stringify(postData),
             type: "POST",
             contentType: "application/json;charset=utf-8",
@@ -50,7 +51,7 @@ function registerEmail() {
                 else {
                     if (result.data.isConfirmed) {
                         // redirect to Detail page
-                        window.location = "/Home/StudentDetail";
+                        window.location = "/Home/StandardInfo/" + email;
                     }
                     else {
                         // show verification mail content

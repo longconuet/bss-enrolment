@@ -1,0 +1,451 @@
+﻿@using Enrolment.ModelViews;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Standard Info Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model StandardInfoModel
+
+@section Style{
+    <script src="~/css/studentDetail.css"></script>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1>1. Payee</h1>
+            <div class="group-item">
+                <div id="common-info">
+                    <div class="mb-3">
+                        <label for="surname" class="form-label">SURNAME<span class="required-star">*</span>:</label>
+                        <input type="text" class="form-control" id="surname" placeholder="Surname" value="@Model.Payee.Surname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">FIRST NAME<span class="required-star">*</span>:</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="otherName" class="form-label">OTHER NAME:</label>
+                        <input type="text" class="form-control" id="otherName">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="preferredName" class="form-label">PREFERRED NAME:</label>
+                        <input type="text" class="form-control" id="preferredName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dayOfBirth" class="form-label">DATE OF BIRTH<span class="required-star">*</span>:</label>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>--- Day ---</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>--- Month ---</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>--- Year ---</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">GENDER<span class="required-star">*</span>:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="genderMale">
+                            <label class="form-check-label" for="genderMale">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="genderFemale">
+                            <label class="form-check-label" for="genderFemale">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="entry-detail mt-15">
+                    <h5 class="text-info">Entry details</h5>
+                    <div class="mb-3">
+                        <label for="yearOfEntry" class="form-label">YEAR OF ENTRY<span class="required-star">*</span>:</label>
+                        <select class="form-select" aria-label="Default select example" id="yearOfEntry">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="termOfEntry" class="form-label">TERM OF ENTRY<span class="required-star">*</span>:</label>
+                        <select class="form-select" aria-label="Default select example" id="termOfEntry">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="calendarYearOfEntry" class="form-label">CALENDAR YEAR OF ENTRY<span class="required-star">*</span>:</label>
+                        <select class="form-select" aria-label="Default select example" id="calendarYearOfEntry">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="current-school-detail mt-15">
+                    <h5 class="text-info">Current School Details</h5>
+                    <div class="mb-3">
+                        <label for="currentSchool" class="form-label">CURRENT SCHOOL:</label>
+                        <select class="form-select" aria-label="Default select example" id="currentSchool">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="specifySchool" class="form-label">IF OTHER, PLEASE SPECIFY<span class="required-star">*</span>:</label>
+                        <input type="text" class="form-control" id="specifySchool">
+                    </div>
+                    <div class="mb-3">
+                        <label for="currentYearLevel" class="form-label">CURRENT YEAR LEVEL:</label>
+                        <select class="form-select" aria-label="Default select example" id="currentYearLevel">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group-item">
+                <div id="citizenship mt-15">
+                    <h5 class="text-info">Citizenship Details / Visa Details / Government Data Collection</h5>
+                    <div class="mb-3">
+                        <label for="nationality" class="form-label">NATIONALITY<span class="required-star">*</span>:</label>
+                        <select class="form-select" aria-label="Default select example" id="nationality">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="countryOfBirth" class="form-label">COUNTRY OF BIRTH<span class="required-star">*</span>:</label>
+                        <select class="form-select" aria-label="Default select example" id="countryOfBirth">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">RESIDENCY STATUS<span class="required-star">*</span>:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="residencyStatus" id="residencyStatus1">
+                            <label class="form-check-label" for="residencyStatus1">
+                                Australian Citizen
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="residencyStatus" id="residencyStatus2">
+                            <label class="form-check-label" for="residencyStatus2">
+                                Permanent Resident or New Zealand Citizen
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="residencyStatus" id="residencyStatus3">
+                            <label class="form-check-label" for="residencyStatus3">
+                                Temporary Resident
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="visaFile" class="form-label">UPLOAD COPY OF VISA<span class="required-star">*</span>:</label>
+                        <input class="form-control" type="file" id="visaFile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="visaSubClass" class="form-label">VISA SUB-CLASS<span class="required-star">*</span>:</label>
+                        <input type="text" class="form-control" id="visaSubClass">
+                    </div>
+                    <div class="mb-3">
+                        <label for="visaArrivalDate" class="form-label">VISA ARRIVAL DATE<span class="required-star">*</span>:</label>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <select class="form-select" aria-label="Default select example" id="visaArrivalDay">
+                                    <option selected>--- Day ---</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select" aria-label="Default select example" id="visaArrivalMonth">
+                                    <option selected>--- Month ---</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select" aria-label="Default select example" id="visaArrivalYear">
+                                    <option selected>--- Year ---</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="visaUnrestrictedExpiry" checked disabled>
+                            <label class="form-check-label" for="visaUnrestrictedExpiry">
+                                Unrestricted Expiry
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">IS THE STUDENT OF ABORIGINAL OR TORRES STRAIT ISLANDER BACKGROUND<span class="required-star">*</span>:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="isAboriginalIsLander" id="isAboriginalIsLander1">
+                            <label class="form-check-label" for="isAboriginalIsLander1">
+                                No
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="isAboriginalIsLander" id="isAboriginalIsLander2">
+                            <label class="form-check-label" for="isAboriginalIsLander2">
+                                Yes, Aboriginal Background
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="isAboriginalIsLander" id="isAboriginalIsLander3">
+                            <label class="form-check-label" for="isAboriginalIsLander3">
+                                Yes, Torres Strait Islander Background
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="speakOtherLanguage" class="form-label">DOES THE STUDENT SPEAK A LANGUAGE OTHER THAN ENGLISH AT HOME<span class="required-star">*</span>:</label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="speakOtherLanguage" id="speakOtherLanguageYes" value="1">
+                                <label class="form-check-label" for="speakOtherLanguageYes">YES</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="speakOtherLanguage" id="speakOtherLanguageNo" value="0">
+                                <label class="form-check-label" for="speakOtherLanguageNo">NO</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="otherOftenLanguage" class="form-label">IF MORE THAN ONE LANGUAGE, INDICATE THE ONE THAT IS SPOKEN MORE OFTEN<span class="required-star">*</span>:</label>
+                        <select class="form-select" aria-label="Default select example" id="otherOftenLanguage">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="otherLanguage" class="form-label">IF OTHER, PLEASE SPECIFY<span class="required-star">*</span>:</label>
+                        <input type="text" class="form-control" id="otherLanguage">
+                    </div>
+                    <div class="mb-3">
+                        <label for="religion" class="form-label">RELIGION<span class="required-star">*</span>:</label>
+                        <select class="form-select" aria-label="Default select example" id="religion">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="parish" class="form-label">PARISH:</label>
+                        <input type="text" class="form-control" id="parish">
+                    </div>
+                </div>
+            </div>
+
+            <div class="group-item">
+                <div id="student-residential-detail mt-15">
+                    <h5 class="text-info">Student Residential Details</h5>
+                    <div class="mb-3">
+                        <label for="streetAddress" class="form-label">STREET ADDRESS<span class="required-star">*</span>:</label>
+                        <input type="text" class="form-control" id="streetAddress" placeholder="e.g 24 Church St">
+                    </div>
+                    <div class="mb-3">
+                        <label for="unitApartment" class="form-label">UNIT / APARTMENT / FLAT / SUITE (IF APPLICABLE):</label>
+                        <input type="text" class="form-control" id="unitApartment">
+                    </div>
+                    <div class="mb-3">
+                        <label for="streetAddress" class="form-label">SUBURB<span class="required-star">*</span>:</label>
+                        <input type="text" class="form-control" id="streetAddress" placeholder="Suburb">
+                    </div>
+                    <div class="mb-3">
+                        <label for="state" class="form-label">STATE<span class="required-star">*</span>:</label>
+                        <select class="form-select" aria-label="Default select example" id="state">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="postCode" class="form-label">SUBURB<span class="required-star">*</span>:</label>
+                        <input type="text" class="form-control" id="postCode" placeholder="Post Code">
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">COUNTRY<span class="required-star">*</span>:</label>
+                        <select class="form-select" aria-label="Default select example" id="country">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">MOBILE PHONE:</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Enter a phone number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">EMAIL ADDRESS:</label>
+                        <input type="text" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentLivesWith" class="form-label">STUDENT LIVES WITH<span class="required-star">*</span>:</label>
+                        <select class="form-select" aria-label="Default select example" id="studentLivesWith">
+                            <option selected>--- Please select ---</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">PARENTS RELATIONSHIP:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parentsRelationships" id="parentsRelationships1">
+                            <label class="form-check-label" for="parentsRelationships1">
+                                Parents Married
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parentsRelationships" id="parentsRelationships2">
+                            <label class="form-check-label" for="parentsRelationships2">
+                                Parents Divorced
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parentsRelationships" id="parentsRelationships3">
+                            <label class="form-check-label" for="parentsRelationships3">
+                                Parents Separated
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parentsRelationships" id="parentsRelationships4">
+                            <label class="form-check-label" for="parentsRelationships4">
+                                Parents in De Facto Relationship
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parentsRelationships" id="parentsRelationships5">
+                            <label class="form-check-label" for="parentsRelationships5">
+                                Single Parent
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parentsRelationships" id="parentsRelationships6">
+                            <label class="form-check-label" for="parentsRelationships6">
+                                Mother Deceased
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parentsRelationships" id="parentsRelationships7">
+                            <label class="form-check-label" for="parentsRelationships7">
+                                Father Deceased
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parentsRelationships" id="parentsRelationships8">
+                            <label class="form-check-label" for="parentsRelationships8">
+                                Foster Parent
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="parentalResponsibility" class="form-label">PARENTAL RESPONSIBILITY DETAILS (IF APPLICABLE):</label>
+                        <textarea class="form-control" id="parentalResponsibility" rows="5"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="courtOrderFile" class="form-label">UPLOAD COPIES OF RELEVANT COURT ORDERS OR PARENTING PLANS (IF APPLICABLE):</label>
+                        <input class="form-control" type="file" id="courtOrderFile">
+                    </div>
+                </div>
+            </div>
+
+            <div class="group-item">
+                <div id="Mailing-address-detail mt-15">
+                    <h5 class="text-info">Mailing Address Details</h5>
+
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">CORRESPONDENCE TO BE SENT TO<span class="required-star">*</span>:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="correspondences" id="correspondences1">
+                            <label class="form-check-label" for="correspondences1">
+                                Both parents
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="correspondences" id="correspondences2">
+                            <label class="form-check-label" for="correspondences2">
+                                Parent/Carer 1
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="correspondences" id="correspondences3">
+                            <label class="form-check-label" for="correspondences3">
+                                Parent/Carer 2
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="correspondences" id="correspondences4">
+                            <label class="form-check-label" for="correspondences4">
+                                Guardian/Carer
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="correspondences" id="correspondences5">
+                            <label class="form-check-label" for="correspondences5">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
