@@ -6,6 +6,8 @@ using Enrolment.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Configuration;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Enrolment.Controllers
 {
@@ -13,15 +15,19 @@ namespace Enrolment.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private IRegisterEmailService _registerEmailService;
+        private IStandardInfoService _standardInfoService;
         private readonly ApplicationDbContext _context;
         private readonly IEmailSenderService _emailSender;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IEmailSenderService emailSender)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IEmailSenderService emailSender, IConfiguration configuration)
         {
             _logger = logger;
-            _registerEmailService = new RegisterEmailService(context, emailSender);
+            _registerEmailService = new RegisterEmailService(context, emailSender, configuration);
+            _standardInfoService = new StandardInfoService(context);
             _context = context;
             _emailSender = emailSender;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
@@ -96,34 +102,107 @@ namespace Enrolment.Controllers
             ViewBag.IsValidEmail = checkEmail != null;
             ViewBag.HasConfirmedYet = hasConfirmedYet;
             ViewBag.HasError = hasError;
-            ViewBag.Code = checkEmail?.HashCode;
+            ViewBag.Email = checkEmail?.Email;
             return View();
 
         }
 
         [HttpGet("Home/StandardInfo/{email}")]
-        public async Task<IActionResult> StandardInfo(string email)
+        public IActionResult StandardInfo(string email)
         {
-            var checkEmail = await _context.EmailRegisters.FirstOrDefaultAsync(x => !string.IsNullOrEmpty(x.HashCode) 
-                && x.Email == email 
-                && x.IsConfirmed 
-                && x.IsDeleted == 0);
-            if (checkEmail == null)
+            ViewBag.Email = email;
+            return View();
+        }
+
+        [HttpGet("Home/StandardInfoDetail/{email}")]
+        public async Task<ActionResult<ResponseModel<StandardInfoModel>>> StandardInfoDetail(string email)
+        {
+            try
             {
-                return RedirectToAction("RegisterEmail");
+                var checkEmail = await _context.EmailRegisters.Include(x => x.Payee).FirstOrDefaultAsync(x => !string.IsNullOrEmpty(x.HashCode)
+                    && x.Email == email
+                    && x.IsConfirmed
+                    && x.IsDeleted == 0);
+                if (checkEmail == null)
+                {
+                    return new ResponseModel<StandardInfoModel>
+                    {
+                        Status = 0,
+                        Message = "Invalid email"
+                    };
+                    //return RedirectToAction("RegisterEmail");
+                }
+
+                var payee = checkEmail.Payee;
+                var data = new StandardInfoModel
+                {
+                    EmailRegister = email,
+                    Payee = payee != null ? new PayeeModel
+                    {
+                        Surname = payee!.Surname,
+                        FirstName = payee!.FirstName,
+                        TaxFileNumber = payee!.TaxFileNumber,
+                        NameTitle = (int)payee!.NameTitle,
+                        OtherName = payee!.OtherName,
+                        HomeAddress = payee!.HomeAddress,
+                        Suburb = payee!.Suburb,
+                        State = payee!.State,
+                        PostCode = payee!.PostCode,
+                        PreviousFamilyName = payee!.PreviousFamilyName,
+                        Email = payee!.Email,
+                        DayOfBirth = payee!.DayOfBirth,
+                        MonthOfBirth = payee!.MonthOfBirth,
+                        YearOfBirth = payee!.YearOfBirth,
+                        PaidBasis = (int)payee!.PaidBasis,
+                        ResidencyStatus = (int)payee!.ResidencyStatus,
+                        ClaimTaxFree = (int)payee!.ClaimTaxFree,
+                        HaveLoanProgram = (int)payee!.HaveLoanProgram
+                    } : null
+                };
+
+                return new ResponseModel<StandardInfoModel>
+                {
+                    Status = 1,
+                    Data = data
+                };
+            }
+            catch (Exception e)
+            {
+                return new ResponseModel<StandardInfoModel>
+                {
+                    Status = 0,
+                    Message = "Server error"
+                };
+            }
+        }
+
+        [HttpPost()]
+        public async Task<ActionResult<ResponseModel>> SubmitStandardInfo([FromBody] SubmitStandardInfoRequest request)
+        {
+            // validate
+            if (!ModelState.IsValid)
+            {
+                var message = string.Join(" </br> ", ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage));
+                return BadRequest(ModelState);
             }
 
-            var payee = checkEmail.Payee;
-            ViewData.Add("Info", new StandardInfoModel
+            var result = await _standardInfoService.Update(request);
+            if (result.Status == 0)
             {
-                Payee = new PayeeRequest
+                return new ResponseModel
                 {
-                    FirstName = payee!.FirstName,
-                    Surname = payee!.Surname
-                }
-            });
+                    Status = 0,
+                    Message = result.Message
+                };
+            }
 
-            return View();
+            return new ResponseModel
+            {
+                Status = 1,
+                Message = result.Message
+            };
         }
     }
 }

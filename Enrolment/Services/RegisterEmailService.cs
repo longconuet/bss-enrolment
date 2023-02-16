@@ -18,11 +18,14 @@ namespace Enrolment.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly IEmailSenderService _emailSender;
+        private readonly IConfiguration _configuration;
 
-        public RegisterEmailService(ApplicationDbContext context, IEmailSenderService emailSender)
+
+        public RegisterEmailService(ApplicationDbContext context, IEmailSenderService emailSender, IConfiguration configuration)
         {
             _context = context;
             _emailSender = emailSender;
+            _configuration = configuration;
         }
 
         public async Task<ServiceResponse<RegisterEmailModel>> RegisterEmail(RegisterEmailRequest request)
@@ -124,7 +127,8 @@ namespace Enrolment.Services
                 content = reader.ReadToEnd();
             }
 
-            content = content.Replace("{VerifyEmailLink}", $"/Home/VerifyEmail/{code}");
+            var baseUrl = _configuration["BaseUrl"];
+            content = content.Replace("{VerifyEmailLink}", $"{baseUrl}/Home/VerifyEmail/{code}");
 
             var message = new Message(new string[] { email }, subject, content);
             _emailSender.SendEmail(message);

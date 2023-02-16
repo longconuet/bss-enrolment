@@ -17,7 +17,7 @@
                     Your email was verified before!
                 </div>
                 <div style="float: right">
-                    <a id="continue" type="button" class="btn btn-primary" asp-controller="Home" asp-action="StudentDetail" asp-route-code="@ViewBag.Code">Continue</a>
+                    <a id="continue" type="button" class="btn btn-primary" asp-controller="Home" asp-action="StandardInfo" asp-route-email="@ViewBag.Email">Continue</a>
                 </div>
             }
             else
@@ -28,7 +28,7 @@
                         Your email is verified successfully!
                     </div>
                     <div style="float: right">
-                        <a id="continue" type="button" class="btn btn-primary" asp-controller="Home" asp-action="StudentDetail" asp-route-code="@ViewBag.Code">Continue</a>
+                        <a id="continue" type="button" class="btn btn-primary" asp-controller="Home" asp-action="StandardInfo" asp-route-email="@ViewBag.Email">Continue</a>
                     </div>
                 }
                 else

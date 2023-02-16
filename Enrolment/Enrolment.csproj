@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="EmailTemplates\VerifyEmail.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
