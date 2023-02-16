@@ -9,57 +9,57 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Enrolment
 build_property.RootNamespace = Enrolment
-build_property.ProjectDir = D:\git-bss\Enrolment\Enrolment\
+build_property.ProjectDir = C:\Users\Long NT\Desktop\git\bss-enrolment\Enrolment\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\git-bss\Enrolment\Enrolment
+build_property.MSBuildProjectDirectory = C:\Users\Long NT\Desktop\git\bss-enrolment\Enrolment
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/Home/Index.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/Home/Privacy.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/Home/RegisterEmail.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/Home/RegisterEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RlckVtYWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/Home/StandardInfo.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/Home/StandardInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdGFuZGFyZEluZm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/Home/StandardInfo1.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/Home/StandardInfo1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdGFuZGFyZEluZm8xLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/Home/StudentDetail.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/Home/StudentDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdHVkZW50RGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/Home/VerifyEmail.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/Home/VerifyEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWZXJpZnlFbWFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/Shared/Error.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/_ViewImports.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/_ViewStart.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git-bss/Enrolment/Enrolment/Views/Shared/_Layout.cshtml]
+[C:/Users/Long NT/Desktop/git/bss-enrolment/Enrolment/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3rsl5c4rug

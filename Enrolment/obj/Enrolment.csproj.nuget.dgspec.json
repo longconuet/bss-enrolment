@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\git-bss\\Enrolment\\Enrolment\\Enrolment.csproj": {}
+    "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\Enrolment.csproj": {}
   },
   "projects": {
-    "D:\\git-bss\\Enrolment\\Enrolment\\Enrolment.csproj": {
+    "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\Enrolment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\git-bss\\Enrolment\\Enrolment\\Enrolment.csproj",
+        "projectUniqueName": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\Enrolment.csproj",
         "projectName": "Enrolment",
-        "projectPath": "D:\\git-bss\\Enrolment\\Enrolment\\Enrolment.csproj",
-        "packagesPath": "C:\\Users\\Long Dell\\.nuget\\packages\\",
-        "outputPath": "D:\\git-bss\\Enrolment\\Enrolment\\obj\\",
+        "projectPath": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\Enrolment.csproj",
+        "packagesPath": "C:\\Users\\Long NT\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Long Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Long NT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
