@@ -11,9 +11,17 @@
 }
 
 <style>
+    .required-star {
+        color: red;
+    }
+
     .error {
         color: red;
         font-style: italic
+    }
+
+    input[type=text].error {
+        border: red 1px solid;
     }
 </style>
 
@@ -22,251 +30,542 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <form id="form-info">
-            <input hidden id="email-register" value="@ViewBag.Email"></input>
-            <h3>Section A: To be completed by the PAYEE</h3>
-            <div class="group-item">
-                <div id="common-info">
-                    <!-- 1 -->
-                    <div class="mb-3">
-                        <label for="taxFileNumber" class="form-label">
-                            1. What is your tax file number (TFN)?
-                            <span class="required-star">*</span>:
-                        </label>
-                        <input type="text" class="form-control" id="taxFileNumber" name="taxFileNumber" value="">
-                    </div>
+                <input hidden id="email-register" value="@ViewBag.Email"></input>
+                <h3>Section A: To be completed by the PAYEE</h3>
+                <div class="group-item">
+                    <div id="common-info">
+                        <!-- 1 -->
+                        <div class="mb-3">
+                            <label for="taxFileNumber" class="form-label">
+                                1. What is your tax file number (TFN)?
+                                <span class="required-star">*</span>:
+                            </label>
+                            <input type="text" class="form-control" id="taxFileNumber" name="taxFileNumber" value="">
+                        </div>
 
-                    <!-- 2 -->
-                    <div class="mb-3">
-                        <label for="nameTitle" class="form-label">2. What is your name?<span class="required-star">*</span></label>
-                        <div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="nameTitle" id="nameTitle1" value="1">
-                                <label class="form-check-label" for="nameTitle1">Mr</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="nameTitle" id="nameTitle2" value="2">
-                                <label class="form-check-label" for="nameTitle2">Mrs</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="nameTitle" id="nameTitle3" value="3">
-                                <label class="form-check-label" for="nameTitle3">Miss</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="nameTitle" id="nameTitle4" value="4">
-                                <label class="form-check-label" for="nameTitle4">Ms</label>
+                        <!-- 2 -->
+                        <div class="mb-3">
+                            <label for="nameTitle" class="form-label">2. What is your name?<span class="required-star">*</span></label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="nameTitle" id="nameTitle1" value="1">
+                                    <label class="form-check-label" for="nameTitle1">Mr</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="nameTitle" id="nameTitle2" value="2">
+                                    <label class="form-check-label" for="nameTitle2">Mrs</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="nameTitle" id="nameTitle3" value="3">
+                                    <label class="form-check-label" for="nameTitle3">Miss</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="nameTitle" id="nameTitle4" value="4">
+                                    <label class="form-check-label" for="nameTitle4">Ms</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="surname" class="form-label">Surname or family name<span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="surname" name="surname" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="firstName" class="form-label">First given name<span class="required-star">*</span></label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="otherName" class="form-label">Other given names</label>
-                        <input type="text" class="form-control" id="otherName" value="">
-                    </div>
+                        <div class="mb-3">
+                            <label for="surname" class="form-label">Surname or family name<span class="required-star">*</span></label>
+                            <input type="text" class="form-control" id="surname" name="surname" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First given name<span class="required-star">*</span></label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="otherName" class="form-label">Other given names</label>
+                            <input type="text" class="form-control" id="otherName" value="">
+                        </div>
 
-                    <!-- 3 -->
-                    <div class="mb-3">
-                        <label for="homeAddress" class="form-label">
-                            3. What is your home address in Australia?
-                            <span class="required-star">*</span>
-                        </label>
-                        <input type="text" class="form-control" id="homeAddress" name="homeAddress" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="suburb" class="form-label">Suburb/town/locality<span class="required-star">*</span></label>
-                        <input type="text" class="form-control" id="suburb" name="suburb" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="state" class="form-label">State/territory<span class="required-star">*</span></label>
-                            <input type="text" class="form-control" id="state" name="state" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="postCode" class="form-label">PostCode<span class="required-star">*</span></label>
-                            <input type="text" class="form-control" id="postCode" name="postCode" value="">
-                    </div>
+                        <!-- 3 -->
+                        <div class="mb-3">
+                            <label for="homeAddress" class="form-label">
+                                3. What is your home address in Australia?
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="homeAddress" name="homeAddress" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="suburb" class="form-label">Suburb/town/locality<span class="required-star">*</span></label>
+                            <input type="text" class="form-control" id="suburb" name="suburb" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="state" class="form-label">State/territory<span class="required-star">*</span></label>
+                                <input type="text" class="form-control" id="state" name="state" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="postCode" class="form-label">PostCode<span class="required-star">*</span></label>
+                                <input type="text" class="form-control" id="postCode" name="postCode" value="">
+                        </div>
 
-                    <!-- 4 -->
-                    <div class="mb-3">
-                        <label for="previousFamilyName" class="form-label">
-                            4. If you have changed your name since you last dealt with the ATO, provide your previous family name.
-                            <span class="required-star">*</span>
-                        </label>
-                        <input type="text" class="form-control" id="previousFamilyName" value="">
-                    </div>
+                        <!-- 4 -->
+                        <div class="mb-3">
+                            <label for="previousFamilyName" class="form-label">
+                                4. If you have changed your name since you last dealt with the ATO, provide your previous family name.
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="previousFamilyName" value="">
+                        </div>
 
-                    <!-- 5 -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">
-                            5. What is your primary e-mail address?
-                            <span class="required-star">*</span>
-                        </label>
-                            <input type="text" class="form-control" id="email" name="email" value="">
-                    </div>
+                        <!-- 5 -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                5. What is your primary e-mail address?
+                                <span class="required-star">*</span>
+                            </label>
+                                <input type="text" class="form-control" id="email" name="email" value="">
+                        </div>
 
-                    <!-- 6 -->
-                    <div class="mb-3">
-                        <label for="dayOfBirth" class="form-label">
-                            6. What is your date of birth?
-                            <span class="required-star">*</span>
-                        </label>
-                        <div class="row">
-                            <div class="col-md-4">
-                                    <select class="form-select" aria-label="Default select example" id="dayOfBirth" name="dayOfBirth">
-                                    <option selected value="">--- Day ---</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                    <select class="form-select" aria-label="Default select example" id="monthOfBirth" name="monthOfBirth">
-                                    <option selected value="">--- Month ---</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                    <select class="form-select" aria-label="Default select example" id="yearOfBirth" name="yearOfBirth">
-                                    <option selected value="">--- Year ---</option>
-                                    <option value="1">1995</option>
-                                    <option value="2">1996</option>
-                                    <option value="3">1997</option>
-                                </select>
+                        <!-- 6 -->
+                        <div class="mb-3">
+                            <label for="dayOfBirth" class="form-label">
+                                6. What is your date of birth?
+                                <span class="required-star">*</span>
+                            </label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                        <select class="form-select" aria-label="Default select example" id="dayOfBirth" name="dayOfBirth">
+                                        <option selected value="">--- Day ---</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                        <select class="form-select" aria-label="Default select example" id="monthOfBirth" name="monthOfBirth">
+                                        <option selected value="">--- Month ---</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                        <select class="form-select" aria-label="Default select example" id="yearOfBirth" name="yearOfBirth">
+                                        <option selected value="">--- Year ---</option>
+                                        <option value="1">1995</option>
+                                        <option value="2">1996</option>
+                                        <option value="3">1997</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 7 -->
-                    <div class="mb-3">
-                        <label for="paidBasis" class="form-label">
-                            7. On what basis are you paid? (select only one)
-                            <span class="required-star">*</span>
-                        </label>
-                        <div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paidBasis" id="paidBasis1" value="1">
-                                <label class="form-check-label" for="paidBasis1">
-                                    Full‑time employment
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paidBasis" id="paidBasis2" value="2">
-                                <label class="form-check-label" for="paidBasis2">
-                                    Part‑time employment
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paidBasis" id="paidBasis3" value="3">
-                                <label class="form-check-label" for="paidBasis3">
-                                    Labour hire
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paidBasis" id="paidBasis4" value="4">
-                                <label class="form-check-label" for="paidBasis4">
-                                    Superannuation or annuity income stream
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paidBasis" id="paidBasis5" value="5">
-                                <label class="form-check-label" for="paidBasis5">
-                                    Casual employment
-                                </label>
+                        <!-- 7 -->
+                        <div class="mb-3">
+                            <label for="paidBasis" class="form-label">
+                                7. On what basis are you paid? (select only one)
+                                <span class="required-star">*</span>
+                            </label>
+                            <div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paidBasis" id="paidBasis1" value="1">
+                                    <label class="form-check-label" for="paidBasis1">
+                                        Full‑time employment
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paidBasis" id="paidBasis2" value="2">
+                                    <label class="form-check-label" for="paidBasis2">
+                                        Part‑time employment
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paidBasis" id="paidBasis3" value="3">
+                                    <label class="form-check-label" for="paidBasis3">
+                                        Labour hire
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paidBasis" id="paidBasis4" value="4">
+                                    <label class="form-check-label" for="paidBasis4">
+                                        Superannuation or annuity income stream
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paidBasis" id="paidBasis5" value="5">
+                                    <label class="form-check-label" for="paidBasis5">
+                                        Casual employment
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 8 -->
-                    <div class="mb-3">
-                        <label for="residencyStatus" class="form-label">
-                            8. Are you: (select only one)
-                            <span class="required-star">*</span>
-                        </label>
-                        <div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="residencyStatus" id="residencyStatus1" value="1">
-                                <label class="form-check-label" for="residencyStatus1">
-                                    An Australian resident for tax purposes
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="residencyStatus" id="residencyStatus2" value="2">
-                                <label class="form-check-label" for="residencyStatus2">
-                                    A foreign resident for tax purposes
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="residencyStatus" id="residencyStatus3" value="3">
-                                <label class="form-check-label" for="residencyStatus3">
-                                    A working holiday maker
-                                </label>
+                        <!-- 8 -->
+                        <div class="mb-3">
+                            <label for="residencyStatus" class="form-label">
+                                8. Are you: (select only one)
+                                <span class="required-star">*</span>
+                            </label>
+                            <div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="residencyStatus" id="residencyStatus1" value="1">
+                                    <label class="form-check-label" for="residencyStatus1">
+                                        An Australian resident for tax purposes
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="residencyStatus" id="residencyStatus2" value="2">
+                                    <label class="form-check-label" for="residencyStatus2">
+                                        A foreign resident for tax purposes
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="residencyStatus" id="residencyStatus3" value="3">
+                                    <label class="form-check-label" for="residencyStatus3">
+                                        A working holiday maker
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 9 -->
-                    <div class="mb-3">
-                        <label for="claimTaxFree" class="form-label">
-                            9. Do you want to claim the tax-free threshold from this payer?
-                            <span class="required-star">*</span>
-                        </label>
-                        <div>
-                            Only claim the tax‑free threshold from one payer at a time, unless your total income from all sources for the financial year will be less than the tax‑free threshold.
-                        </div>
-                        <div>
-                            Answer no here if you are a foreign resident or working holiday maker, except if you are a foreign resident in receipt of an Australian Government pension or allowance
-                        </div>
-                        <div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="claimTaxFree" id="claimTaxFree1" value="1">
-                                <label class="form-check-label" for="claimTaxFree1">
-                                    Yes
-                                </label>
+                        <!-- 9 -->
+                        <div class="mb-3">
+                            <label for="claimTaxFree" class="form-label">
+                                9. Do you want to claim the tax-free threshold from this payer?
+                                <span class="required-star">*</span>
+                            </label>
+                            <div>
+                                Only claim the tax‑free threshold from one payer at a time, unless your total income from all sources for the financial year will be less than the tax‑free threshold.
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="claimTaxFree" id="claimTaxFree0" value="0">
-                                <label class="form-check-label" for="claimTaxFree0">
-                                    No
-                                </label>
+                            <div>
+                                Answer no here if you are a foreign resident or working holiday maker, except if you are a foreign resident in receipt of an Australian Government pension or allowance
+                            </div>
+                            <div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="claimTaxFree" id="claimTaxFree1" value="1">
+                                    <label class="form-check-label" for="claimTaxFree1">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="claimTaxFree" id="claimTaxFree0" value="0">
+                                    <label class="form-check-label" for="claimTaxFree0">
+                                        No
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 10 -->
-                    <div class="mb-3">
-                        <label for="haveLoanProgram" class="form-label">
-                            10. Do you have a Higher Education Loan Program (HELP), VET Student Loan (VSL), Financial Supplement (FS), Student Start-up Loan (SSL) or Trade Support Loan (TSL) debt?
-                            <span class="required-star">*</span>
-                        </label>
-                        <div>
-                            Your payer will withhold additional amounts to cover any compulsory repayment that may be raised on your notice of assessment.
-                        </div>
-                        <div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="haveLoanProgram" id="haveLoanProgram1" value="1">
-                                <label class="form-check-label" for="haveLoanProgram1">
-                                    Yes
-                                </label>
+                        <!-- 10 -->
+                        <div class="mb-3">
+                            <label for="haveLoanProgram" class="form-label">
+                                10. Do you have a Higher Education Loan Program (HELP), VET Student Loan (VSL), Financial Supplement (FS), Student Start-up Loan (SSL) or Trade Support Loan (TSL) debt?
+                                <span class="required-star">*</span>
+                            </label>
+                            <div>
+                                Your payer will withhold additional amounts to cover any compulsory repayment that may be raised on your notice of assessment.
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="haveLoanProgram" id="haveLoanProgram0" value="0">
-                                <label class="form-check-label" for="haveLoanProgram0">
-                                    No
-                                </label>
+                            <div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="haveLoanProgram" id="haveLoanProgram1" value="1">
+                                    <label class="form-check-label" for="haveLoanProgram1">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="haveLoanProgram" id="haveLoanProgram0" value="0">
+                                    <label class="form-check-label" for="haveLoanProgram0">
+                                        No
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            
+                <h3>Section B: To be completed by the PAYER</h3>
+                <div class="group-item">
+                    <div id="common-info">
+                        <!-- 1 -->
+                        <div class="mb-3">
+                            <label for="businessNumber" class="form-label">
+                                1. What is your Australian business number (ABN) or withholding payer number?
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="businessNumber" name="businessNumber" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="branchNumber" class="form-label">
+                                Branch number (if applicable)
+                            </label>
+                            <input type="text" class="form-control" id="branchNumber" name="branchNumber" value="">
+                        </div>
+
+                        <!-- 2 -->
+                        <div class="mb-3">
+                            <label for="appliedForNumber" class="form-label">
+                                2. If you don’t have an ABN or withholding payer number, have you applied for one?<span class="required-star">*</span>
+                            </label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="appliedForNumber" id="appliedForNumber1" value="1">
+                                    <label class="form-check-label" for="appliedForNumber1">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="appliedForNumber" id="appliedForNumber0" value="0">
+                                    <label class="form-check-label" for="appliedForNumber0">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3 -->
+                        <div class="mb-3">
+                            <label for="legalName" class="form-label">
+                                3. What is your legal name or registered business name (or your individual name if not in business)?
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="legalName" name="legalName" value="">
+                        </div>
+
+                        <!-- 4 -->
+                        <div class="mb-3">
+                            <label for="businessAddress" class="form-label">
+                                4. What is your business address?
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="businessAddress" name="businessAddress" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="suburbPayer" class="form-label">Suburb/town/locality<span class="required-star">*</span></label>
+                            <input type="text" class="form-control" id="suburbPayer" name="suburbPayer" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="statePayer" class="form-label">State/territory<span class="required-star">*</span></label>
+                            <input type="text" class="form-control" id="statePayer" name="statePayer" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="postCodePayer" class="form-label">PostCode<span class="required-star">*</span></label>
+                            <input type="text" class="form-control" id="postCodePayer" name="postCodePayer" value="">
+                        </div>
+
+                        <!-- 5 -->
+                        <div class="mb-3">
+                            <label for="emailPayer" class="form-label">
+                                5. What is your primary e-mail address?
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="emailPayer" name="emailPayer" value="">
+                        </div>
+
+                        <!-- 6 -->
+                        <div class="mb-3">
+                            <label for="contactPerson" class="form-label">
+                                6. Who is your contact person?
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="contactPerson" name="contactPerson" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="businessPhone" class="form-label">
+                                Business phone number
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="businessPhone" name="businessPhone" value="">
+                        </div>
+
+                        <!-- 7 -->
+                        <div class="mb-3">
+                            <label for="makePayment" class="form-label">
+                                7. If you no longer make payments to this payee, print X in this box.
+                                <input class="form-check-input" type="checkbox" name="makePayment" id="makePayment" value="1">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Section A: Employee to complete</h3>
+                <div class="group-item">
+                    <div id="common-info">
+                        <!-- 1 -->
+                        <div class="mb-3">
+                            <label for="superannuationFund" class="form-label">
+                                1. Choice of superannuation fund
+                                <div>I request that all my future superannuation contributions be paid to: (select one)</div>
+                            </label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="superannuationFund" id="superannuationFund1" value="1">
+                                    <label class="form-check-label" for="superannuationFund1">my employer’s superannuation fund named in ‘Section B – Question 6</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="superannuationFund" id="superannuationFund2" value="2">
+                                    <label class="form-check-label" for="superannuationFund2">my own choice of superannuation fund</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2 -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                2. Your detail
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeName" class="form-label">
+                                Name
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="employeeName" name="employeeName" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="identificationNumber" class="form-label">
+                                Employee identification number (if applicable
+                            </label>
+                            <input type="text" class="form-control" id="identificationNumber" name="identificationNumber" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeTaxFileNumber" class="form-label">
+                                Tax file number (TFN)
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="employeeTaxFileNumber" name="employeeTaxFileNumber" value="">
+                            <div>
+                                Make sure your superannuation fund knows your TFN. You can check just by looking at your latest statement from them. It helps you keep track of your money, allows you to pay extra contributions, and makes sure the money gets taxed at the special low rate.
+                            </div>
+                        </div>
+
+                        <!-- 3 -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                3.  Details of my chosen superannuation fund:
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeFundName" class="form-label">
+                                Fund name
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="employeeFundName" name="employeeFundName" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeFundAddress" class="form-label">
+                                Fund address
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="employeeFundAddress" name="employeeFundAddress" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeSuburb" class="form-label">Suburb/town/locality<span class="required-star">*</span></label>
+                            <input type="text" class="form-control" id="employeeSuburb" name="employeeSuburb" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeState" class="form-label">State/territory<span class="required-star">*</span></label>
+                            <input type="text" class="form-control" id="employeeState" name="employeeState" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeePostCode" class="form-label">PostCode<span class="required-star">*</span></label>
+                            <input type="text" class="form-control" id="employeePostCode" name="employeePostCode" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="memberNo" class="form-label">Member No. (if applicable)</label>
+                            <input type="text" class="form-control" id="memberNo" name="memberNo" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="accountName" class="form-label">
+                                Account name
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="accountName" name="accountName" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeBusinessNumber" class="form-label">Superannuation fund’s Australian business number (ABN) (if applicable)</label>
+                            <input type="text" class="form-control" id="employeeBusinessNumber" name="employeeBusinessNumber" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeSuperannuationProductIdentificationNumber" class="form-label">Superannuation product identification number (if applicable)</label>
+                            <input type="text" class="form-control" id="employeeSuperannuationProductIdentificationNumber" name="employeeSuperannuationProductIdentificationNumber" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="daytimePhoneNumber" class="form-label">
+                                Daytime phone number
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="daytimePhoneNumber" name="daytimePhoneNumber" value="">
+                        </div>
+
+                        <!-- 4 -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                4. Appropriate documentation (Tick in the box if you have attached the required information.)
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-check-input" type="checkbox" name="haveAttached" id="haveAttached" value="1">
+                            <label for="haveAttached" class="form-label">
+                                I have attached:
+                            </label>
+                            <div>
+                                <div>
+                                    a. a letter from the trustee stating that this is a complying fund or retirement savings account (RSA) or, for a self managed superannuation fund, a copy of documentation from the ATO confirming the fund is regulated
+                                </div>
+                                <div>b. written evidence from the fund stating that they will accept contributions from my employer</div>
+                                <div>c. details about how my employer can make contributions to this fund.</div>
+                                <div>Your employer is not required to accept your choice of fund if you have not provided the appropriate documents.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Section B: Employer to complete</h3>
+                <div class="group-item">
+                    <div id="common-info">
+                        <!-- 5 -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                5. Your details
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employerBusinessName" class="form-label">
+                               Business name
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="employerBusinessName" name="employerBusinessName" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employerBusinessNumber" class="form-label">
+                                ABN
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="employerBusinessNumber" name="employerBusinessNumber" value="">
+                        </div>
+
+                        <!-- 6 -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                6. Your employer nominated superannuation fund
+                            </label>
+                            <div>If the employee does not choose a different superannuation fund, superannuation contributions will be paid to the following superannuation fund on behalf of this employee (unless the employee has previously chosen a different fund):</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employerFundName" class="form-label">
+                                Fund’s name
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="employerFundName" name="employerFundName" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employerSuperannuationProductIdentificationNumber" class="form-label">
+                                Superannuation product identification number (if applicable)
+                            </label>
+                            <input type="text" class="form-control" id="employerSuperannuationProductIdentificationNumber" name="employerSuperannuationProductIdentificationNumber" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employerFundPhone" class="form-label">
+                                For the product disclosure statement for this fund (if applicable) Phone
+                            </label>
+                            <input type="text" class="form-control" id="employerFundPhone" name="employerFundPhone" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="employerFundWebsite" class="form-label">
+                                Fund’s website
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="employerFundWebsite" name="employerFundWebsite" value="">
+                        </div>
+                    </div>
+                </div>
             </form>
 
             <div style="float: right">

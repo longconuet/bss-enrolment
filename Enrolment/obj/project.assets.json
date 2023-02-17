@@ -3689,19 +3689,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Long NT\\.nuget\\packages\\": {}
+    "C:\\Users\\Long Dell\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\Enrolment.csproj",
+      "projectUniqueName": "D:\\git-bss\\bss-enrolment\\Enrolment\\Enrolment.csproj",
       "projectName": "Enrolment",
-      "projectPath": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\Enrolment.csproj",
-      "packagesPath": "C:\\Users\\Long NT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\obj\\",
+      "projectPath": "D:\\git-bss\\bss-enrolment\\Enrolment\\Enrolment.csproj",
+      "packagesPath": "C:\\Users\\Long Dell\\.nuget\\packages\\",
+      "outputPath": "D:\\git-bss\\bss-enrolment\\Enrolment\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Long NT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Long Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3765,7 +3765,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

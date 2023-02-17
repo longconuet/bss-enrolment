@@ -4,6 +4,7 @@ using Enrolment.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Enrolment.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230217042301_editTable2")]
+    partial class editTable2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,12 +43,6 @@ namespace Enrolment.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("EmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EmployerId")
-                        .HasColumnType("int");
-
                     b.Property<string>("HashCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -65,14 +62,6 @@ namespace Enrolment.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("EmployeeId")
-                        .IsUnique()
-                        .HasFilter("[EmployeeId] IS NOT NULL");
-
-                    b.HasIndex("EmployerId")
-                        .IsUnique()
-                        .HasFilter("[EmployerId] IS NOT NULL");
 
                     b.HasIndex("PayeeId")
                         .IsUnique()
@@ -98,6 +87,7 @@ namespace Enrolment.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BusinessNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -110,11 +100,14 @@ namespace Enrolment.Migrations
                     b.Property<DateTime>("DeclarationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("EmailRegisterId")
+                        .HasColumnType("int");
+
                     b.Property<string>("FundAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FundName")
+                    b.Property<string>("FundNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -128,8 +121,8 @@ namespace Enrolment.Migrations
                     b.Property<int>("IsDeleted")
                         .HasColumnType("int");
 
-                    b.Property<string>("MemberNo")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("MemberNo")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -155,6 +148,7 @@ namespace Enrolment.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SuperannuationProductIdentificationNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TaxFileNumber")
@@ -165,6 +159,8 @@ namespace Enrolment.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EmailRegisterId");
 
                     b.ToTable("Employees");
                 });
@@ -197,11 +193,15 @@ namespace Enrolment.Migrations
                     b.Property<DateTime>("DeclarationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("EmailRegisterId")
+                        .HasColumnType("int");
+
                     b.Property<string>("FundName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FundPhone")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FundWebsite")
@@ -216,12 +216,15 @@ namespace Enrolment.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SuperannuationProductIdentificationNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EmailRegisterId");
 
                     b.ToTable("Employers");
                 });
@@ -393,14 +396,6 @@ namespace Enrolment.Migrations
 
             modelBuilder.Entity("Enrolment.Models.EmailRegister", b =>
                 {
-                    b.HasOne("Enrolment.Models.Employee", "Employee")
-                        .WithOne("EmailRegister")
-                        .HasForeignKey("Enrolment.Models.EmailRegister", "EmployeeId");
-
-                    b.HasOne("Enrolment.Models.Employer", "Employer")
-                        .WithOne("EmailRegister")
-                        .HasForeignKey("Enrolment.Models.EmailRegister", "EmployerId");
-
                     b.HasOne("Enrolment.Models.Payee", "Payee")
                         .WithOne("EmailRegister")
                         .HasForeignKey("Enrolment.Models.EmailRegister", "PayeeId");
@@ -409,10 +404,6 @@ namespace Enrolment.Migrations
                         .WithOne("EmailRegister")
                         .HasForeignKey("Enrolment.Models.EmailRegister", "PayerId");
 
-                    b.Navigation("Employee");
-
-                    b.Navigation("Employer");
-
                     b.Navigation("Payee");
 
                     b.Navigation("Payer");
@@ -420,14 +411,24 @@ namespace Enrolment.Migrations
 
             modelBuilder.Entity("Enrolment.Models.Employee", b =>
                 {
-                    b.Navigation("EmailRegister")
+                    b.HasOne("Enrolment.Models.EmailRegister", "EmailRegister")
+                        .WithMany()
+                        .HasForeignKey("EmailRegisterId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("EmailRegister");
                 });
 
             modelBuilder.Entity("Enrolment.Models.Employer", b =>
                 {
-                    b.Navigation("EmailRegister")
+                    b.HasOne("Enrolment.Models.EmailRegister", "EmailRegister")
+                        .WithMany()
+                        .HasForeignKey("EmailRegisterId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("EmailRegister");
                 });
 
             modelBuilder.Entity("Enrolment.Models.Payee", b =>

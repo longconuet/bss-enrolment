@@ -35,6 +35,7 @@ namespace Enrolment.Services
                     };
                 }
 
+                // payee
                 if (emailRegister.Payee == null)
                 {
                     var payee = new Payee
@@ -93,39 +94,136 @@ namespace Enrolment.Services
                     _context.Payees.Update(payee);
                 }
 
-                //if (emailRegister.Payer == null)
-                //{
-                //    _context.Payers.Add(new Payer
-                //    {
-                //        //BusinessNumber = request.Payer.BusinessNumber,
-                //        //BranchNumber = request.Payer.BranchNumber,
-                //        //...
-                //        EmailRegister = emailRegister
-                //    });
-                //}
+                // payer
+                if (emailRegister.Payer == null)
+                {
+                    _context.Payers.Add(new Payer
+                    {
+                        BusinessNumber = request.Payer.BusinessNumber,
+                        BranchNumber = request.Payer.BranchNumber,
+                        AppliedForNumber = request.Payer.AppliedForNumber,
+                        LegalName = request.Payer.LegalName,
+                        BusinessAddress = request.Payer.BusinessAddress,
+                        Suburb = request.Payer.Suburb,
+                        State = request.Payer.State,
+                        PostCode = request.Payer.PostCode,
+                        Email = request.Payer.Email,
+                        ContactPerson = request.Payer.ContactPerson,
+                        BusinessPhone = request.Payer.BusinessPhone,
+                        MakePayment = request.Payer.MakePayment,
+                        Signature = "",
+                        DeclarationDate = DateTime.Now,
+                        EmailRegister = emailRegister
+                    });
+                }
+                else
+                {
+                    var payer = emailRegister.Payer;
+                    payer.BusinessNumber = request.Payer.BusinessNumber;
+                    payer.BranchNumber = request.Payer.BranchNumber;
+                    payer.AppliedForNumber = request.Payer.AppliedForNumber;
+                    payer.LegalName = request.Payer.LegalName;
+                    payer.BusinessAddress = request.Payer.BusinessAddress;
+                    payer.Suburb = request.Payer.Suburb;
+                    payer.State = request.Payer.State;
+                    payer.PostCode = request.Payer.PostCode;
+                    payer.Email = request.Payer.Email;
+                    payer.ContactPerson = request.Payer.ContactPerson;
+                    payer.BusinessPhone = request.Payer.BusinessPhone;
+                    payer.MakePayment = request.Payer.MakePayment;
+                    payer.Signature = "";
+                    payer.DeclarationDate = DateTime.Now;
+                    payer.UpdatedAt = DateTime.Now;
 
-                //if (emailRegister.Employee == null)
-                //{
-                //    _context.Employees.Add(new Employee
-                //    {
-                //        //SuperannuationFund = request.Employee.SuperannuationFund,
-                //        //Name = request.Employee.Name,
-                //        //...
-                //        EmailRegister = emailRegister
-                //    });
-                //}
+                    _context.Payers.Update(payer);
+                }
 
-                //if (emailRegister.Employer == null)
-                //{
-                //    _context.Employers.Add(new Employer
-                //    {
-                //        //BusinessName = request.Employer.BusinessName,
-                //        //BusinessNumber = request.Employer.BusinessNumber,
-                //        //...
-                //        EmailRegister = emailRegister
-                //    });
-                //}          
+                // employee
+                if (emailRegister.Employee == null)
+                {
+                    _context.Employees.Add(new Employee
+                    {
+                        SuperannuationFund = request.Employee.SuperannuationFund,
+                        Name = request.Employee.Name,
+                        IdentificationNumber = request.Employee.IdentificationNumber,
+                        TaxFileNumber = request.Employee.TaxFileNumber,
+                        FundName = request.Employee.FundName,
+                        FundAddress = request.Employee.FundAddress,
+                        Suburb = request.Employee.Suburb,
+                        State = request.Employee.State,
+                        PostCode = request.Employee.PostCode,
+                        MemberNo = request.Employee.MemberNo,
+                        AccountName = request.Employee.AccountName,
+                        BusinessNumber = request.Employee.BusinessNumber,
+                        SuperannuationProductIdentificationNumber = request.Employee.SuperannuationProductIdentificationNumber,
+                        DaytimePhoneNumber = request.Employee.DaytimePhoneNumber,
+                        HaveAttached = request.Employee.HaveAttached,
+                        Signature = "",
+                        DeclarationDate = DateTime.Now,
+                        EmailRegister = emailRegister
+                    });
+                }
+                else
+                {
+                    var employee = emailRegister.Employee;
+                    employee.SuperannuationFund = request.Employee.SuperannuationFund;
+                    employee.Name = request.Employee.Name;
+                    employee.IdentificationNumber = request.Employee.IdentificationNumber;
+                    employee.TaxFileNumber = request.Employee.TaxFileNumber;
+                    employee.FundName = request.Employee.FundName;
+                    employee.FundAddress = request.Employee.FundAddress;
+                    employee.Suburb = request.Employee.Suburb;
+                    employee.State = request.Employee.State;
+                    employee.PostCode = request.Employee.PostCode;
+                    employee.MemberNo = request.Employee.MemberNo;
+                    employee.AccountName = request.Employee.AccountName;
+                    employee.BusinessNumber = request.Employee.BusinessNumber;
+                    employee.SuperannuationProductIdentificationNumber = request.Employee.SuperannuationProductIdentificationNumber;
+                    employee.DaytimePhoneNumber = request.Employee.DaytimePhoneNumber;
+                    employee.HaveAttached = request.Employee.HaveAttached;
+                    employee.Signature = "";
+                    employee.DeclarationDate = DateTime.Now;
+                    employee.UpdatedAt = DateTime.Now;
 
+                    _context.Employees.Update(employee);
+                }
+
+                // employer
+                if (emailRegister.Employer == null)
+                {
+                    _context.Employers.Add(new Employer
+                    {
+                        BusinessName = request.Employer.BusinessName,
+                        BusinessNumber = request.Employer.BusinessNumber,
+                        FundName = request.Employer.FundName,
+                        SuperannuationProductIdentificationNumber = request.Employer.SuperannuationProductIdentificationNumber,
+                        FundPhone = request.Employer.FundPhone,
+                        FundWebsite = request.Employer.FundWebsite,
+                        Signature = "",
+                        DeclarationDate = DateTime.Now,
+                        DateValidChoice = DateTime.Now,
+                        ActDateValidChoice = DateTime.Now,
+                        UpdatedAt = DateTime.Now,
+                        EmailRegister = emailRegister
+                    });
+                }
+                else
+                {
+                    var employer = emailRegister.Employer;
+                    employer.BusinessName = request.Employer.BusinessName;
+                    employer.BusinessNumber = request.Employer.BusinessNumber;
+                    employer.FundName = request.Employer.FundName;
+                    employer.SuperannuationProductIdentificationNumber = request.Employer.SuperannuationProductIdentificationNumber;
+                    employer.FundPhone = request.Employer.FundPhone;
+                    employer.FundWebsite = request.Employer.FundWebsite;
+                    employer.Signature = "";
+                    employer.DeclarationDate = DateTime.Now;
+                    employer.DateValidChoice = DateTime.Now;
+                    employer.ActDateValidChoice = DateTime.Now;
+                    employer.UpdatedAt = DateTime.Now;
+
+                    _context.Employers.Update(employer);
+                }
 
                 await _context.SaveChangesAsync();
 

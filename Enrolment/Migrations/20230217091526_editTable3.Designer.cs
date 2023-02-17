@@ -4,6 +4,7 @@ using Enrolment.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Enrolment.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230217091526_editTable3")]
+    partial class editTable3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,7 +117,7 @@ namespace Enrolment.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FundName")
+                    b.Property<string>("FundNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -128,8 +131,8 @@ namespace Enrolment.Migrations
                     b.Property<int>("IsDeleted")
                         .HasColumnType("int");
 
-                    b.Property<string>("MemberNo")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("MemberNo")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -202,6 +205,7 @@ namespace Enrolment.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FundPhone")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FundWebsite")
@@ -216,6 +220,7 @@ namespace Enrolment.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SuperannuationProductIdentificationNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")

@@ -1,8 +1,6 @@
-﻿using Enrolment.Models;
-
-namespace Enrolment.Requests
+﻿namespace Enrolment.ModelViews
 {
-    public class EmployerRequest
+    public class EmployerModel
     {
         public string BusinessName { get; set; }
         public string BusinessNumber { get; set; }

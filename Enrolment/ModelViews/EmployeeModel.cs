@@ -1,10 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using static Enrolment.Enums.CommonEnum;
+﻿using static Enrolment.Enums.CommonEnum;
 
-namespace Enrolment.Models
+namespace Enrolment.ModelViews
 {
-    [Table("Employees")]
-    public class Employee : BaseModel
+    public class EmployeeModel
     {
         public int SuperannuationFund { get; set; }
         public string Name { get; set; }
@@ -20,10 +18,8 @@ namespace Enrolment.Models
         public string? BusinessNumber { get; set; }
         public string? SuperannuationProductIdentificationNumber { get; set; }
         public string DaytimePhoneNumber { get; set; }
-        public YesNoEnum HaveAttached { get; set; }
-        public string Signature { get; set; }
-        public DateTime DeclarationDate { get; set; }
-
-        public virtual EmailRegister EmailRegister { get; set; }
+        public int HaveAttached { get; set; }
+        public string? Signature { get; set; }
+        public string? DeclarationDate { get; set; }
     }
 }

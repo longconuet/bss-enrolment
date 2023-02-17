@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+IEnumerable<int> squares = Enumerable.Range(1800, 2023);
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

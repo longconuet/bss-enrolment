@@ -10,8 +10,8 @@ namespace Enrolment.Models
         public string Signature { get; set; }
         public DateTime DeclarationDate { get; set; }
         public string FundName { get; set; }
-        public string SuperannuationProductIdentificationNumber { get; set; }
-        public string FundPhone { get; set; }
+        public string? SuperannuationProductIdentificationNumber { get; set; }
+        public string? FundPhone { get; set; }
         public string FundWebsite { get; set; }
         public DateTime DateValidChoice { get; set; }
         public DateTime ActDateValidChoice { get; set; }

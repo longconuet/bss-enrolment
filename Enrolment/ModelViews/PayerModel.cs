@@ -1,14 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using static Enrolment.Enums.CommonEnum;
+﻿using static Enrolment.Enums.CommonEnum;
 
-namespace Enrolment.Models
+namespace Enrolment.ModelViews
 {
-    [Table("Payers")]
-    public class Payer : BaseModel
+    public class PayerModel
     {
         public string BusinessNumber { get; set; }
         public string BranchNumber { get; set; }
-        public YesNoEnum AppliedForNumber { get; set; }
+        public int AppliedForNumber { get; set; }
         public string LegalName { get; set; }
         public string BusinessAddress { get; set; }
         public string Suburb { get; set; }
@@ -17,10 +15,8 @@ namespace Enrolment.Models
         public string Email { get; set; }
         public string ContactPerson { get; set; }
         public string BusinessPhone { get; set; }
-        public YesNoEnum MakePayment { get; set; }
-        public string Signature { get; set; }
-        public DateTime DeclarationDate { get; set; }
-
-        public virtual EmailRegister EmailRegister { get; set; }
+        public int MakePayment { get; set; }
+        public string? Signature { get; set; }
+        public string? DeclarationDate { get; set; }
     }
 }

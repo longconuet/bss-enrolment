@@ -52,6 +52,88 @@ $(document).ready(function () {
             haveLoanProgram: {
                 required: true
             },
+
+            businessNumber: {
+                required: true
+            },
+            appliedForNumber: {
+                required: true
+            },
+            branchNumber: {
+                required: true
+            },
+            legalName: {
+                required: true
+            },
+            businessAddress: {
+                required: true
+            },
+            suburbPayer: {
+                required: true
+            },
+            statePayer: {
+                required: true
+            },
+            postCodePayer: {
+                required: true
+            },
+            emailPayer: {
+                required: true,
+                email: true
+            },
+            contactPerson: {
+                required: true
+            },
+            businessPhone: {
+                required: true
+            },
+
+            superannuationFund: {
+                required: true
+            },
+            employeeName: {
+                required: true
+            },
+            identificationNumber: {
+                required: true
+            },
+            employeeTaxFileNumber: {
+                required: true
+            },
+            employeeFundName: {
+                required: true
+            },
+            employeeFundAddress: {
+                required: true
+            },
+            employeeSuburb: {
+                required: true
+            },
+            employeeState: {
+                required: true
+            },
+            employeePostCode: {
+                required: true
+            },
+            accountName: {
+                required: true
+            },
+            daytimePhoneNumber: {
+                required: true
+            },
+
+            employerBusinessName: {
+                required: true
+            },
+            employerBusinessNumber: {
+                required: true
+            },
+            employerFundName: {
+                required: true
+            },
+            employerFundWebsite: {
+                required: true
+            },
         },
 
         messages: {
@@ -145,6 +227,45 @@ function getDetail() {
                 $("input[name=claimTaxFree][value=" + payee.claimTaxFree + "]").prop('checked', true);
                 $("input[name=haveLoanProgram][value=" + payee.haveLoanProgram + "]").prop('checked', true);
             }
+
+            if (result.data.payee != null) {
+                var payer = result.data.payer;
+                $('#businessNumber').val(payer.businessNumber);
+                $("input[name=appliedForNumber][value=" + payer.appliedForNumber + "]").prop('checked', true);
+                $('#branchNumber').val(payer.branchNumber);
+                $('#legalName').val(payer.legalName);
+                $('#businessAddress').val(payer.businessAddress);
+                $('#suburbPayer').val(payer.suburb);
+                $('#statePayer').val(payer.state);
+                $('#postCodePayer').val(payer.postCode);
+                $('#emailPayer').val(payer.email);
+                $('#contactPerson').val(payer.contactPerson);
+                $('#businessPhone').val(payer.businessPhone);
+                if (payer.makePayment == 1) {
+                    $('#makePayment').prop('checked', true);
+                }
+            }
+
+            if (result.data.employee != null) {
+                var employee = result.data.employee;
+                $("input[name=superannuationFund][value=" + employee.superannuationFund + "]").prop('checked', true);
+                $('#employeeName').val(employee.employeeName);
+                $('#identificationNumber').val(employee.identificationNumber);
+                $('#employeeTaxFileNumber').val(employee.employeeTaxFileNumber);
+                $('#employeeFundName').val(employee.employeeFundName);
+                $('#employeeFundAddress').val(employee.employeeFundAddress);
+                $('#employeeSuburb').val(employee.employeeSuburb);
+                $('#employeeState').val(employee.employeeState);
+                $('#employeePostCode').val(employee.employeePostCode);
+                $('#memberNo').val(employee.memberNo);
+                $('#accountName').val(employee.accountName);
+                $('#employeeBusinessNumber').val(employee.employeeBusinessNumber);
+                $('#employeeSuperannuationProductIdentificationNumber').val(employee.employeeSuperannuationProductIdentificationNumber);
+                $('#daytimePhoneNumber').val(employee.daytimePhoneNumber);
+                if (payer.haveAttached == 1) {
+                    $('#haveAttached').prop('checked', true);
+                }
+            }
         },
         error: function (errormessage) {
             toastr.error(errormessage.responseText, "Error occurred");
@@ -176,6 +297,45 @@ function submit() {
                 ResidencyStatus: parseInt($("input[name='residencyStatus']:checked").val()),
                 ClaimTaxFree: parseInt($("input[name='claimTaxFree']:checked").val()),
                 HaveLoanProgram: parseInt($("input[name='haveLoanProgram']:checked").val())
+            },
+            Payer: {
+                BusinessNumber: $('#businessNumber').val(),
+                BranchNumber: $('#branchNumber').val(),
+                AppliedForNumber: parseInt($("input[name='appliedForNumber']:checked").val()),
+                LegalName: $('#legalName').val(),
+                BusinessAddress: $('#businessAddress').val(),
+                Suburb: $('#suburbPayer').val(),
+                State: $('#statePayer').val(),
+                PostCode: $('#postCodePayer').val(),
+                Email: $('#emailPayer').val(),
+                ContactPerson: $('#contactPerson').val(),
+                BusinessPhone: $('#businessPhone').val(),
+                MakePayment: $('#makePayment').prop('checked') ? 1 : 0,
+            },
+            Employee: {
+                SuperannuationFund: parseInt($("input[name='superannuationFund']:checked").val()),
+                Name: $('#employeeName').val(),
+                IdentificationNumber: $('#identificationNumber').val(),
+                TaxFileNumber: $('#employeeTaxFileNumber').val(),
+                FundName: $('#employeeFundName').val(),
+                FundAddress: $('#employeeFundAddress').val(),
+                Suburb: $('#employeeSuburb').val(),
+                State: $('#employeeState').val(),
+                PostCode: $('#employeePostCode').val(),
+                MemberNo: $('#memberNo').val(),
+                AccountName: $('#accountName').val(),
+                BusinessNumber: $('#employeeBusinessNumber').val(),
+                SuperannuationProductIdentificationNumber: $('#employeeSuperannuationProductIdentificationNumber').val(),
+                DaytimePhoneNumber: $('#daytimePhoneNumber').val(),
+                HaveAttached: $('#haveAttached').prop('checked') ? 1 : 0,
+            },
+            Employer: {
+                BusinessName: $('#employerBusinessName').val(),
+                BusinessNumber: $('#employerBusinessNumber').val(),
+                FundName: $('#employerFundName').val(),
+                SuperannuationProductIdentificationNumber: $('#employerSuperannuationProductIdentificationNumber').val(),
+                FundPhone: $('#employerFundPhone').val(),
+                FundWebsite: $('#employerFundWebsite').val(),
             }
         };
 

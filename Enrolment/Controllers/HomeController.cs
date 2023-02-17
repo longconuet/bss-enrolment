@@ -119,7 +119,11 @@ namespace Enrolment.Controllers
         {
             try
             {
-                var checkEmail = await _context.EmailRegisters.Include(x => x.Payee).FirstOrDefaultAsync(x => !string.IsNullOrEmpty(x.HashCode)
+                var checkEmail = await _context.EmailRegisters.Include(x => x.Payee)
+                    .Include(x => x.Payer)
+                    .Include(x => x.Employee)
+                    .Include(x => x.Employer)
+                    .FirstOrDefaultAsync(x => !string.IsNullOrEmpty(x.HashCode)
                     && x.Email == email
                     && x.IsConfirmed
                     && x.IsDeleted == 0);
@@ -130,10 +134,13 @@ namespace Enrolment.Controllers
                         Status = 0,
                         Message = "Invalid email"
                     };
-                    //return RedirectToAction("RegisterEmail");
                 }
 
                 var payee = checkEmail.Payee;
+                var payer = checkEmail.Payer;
+                var employee = checkEmail.Employee;
+                var employer = checkEmail.Employer;
+
                 var data = new StandardInfoModel
                 {
                     EmailRegister = email,
@@ -157,6 +164,48 @@ namespace Enrolment.Controllers
                         ResidencyStatus = (int)payee!.ResidencyStatus,
                         ClaimTaxFree = (int)payee!.ClaimTaxFree,
                         HaveLoanProgram = (int)payee!.HaveLoanProgram
+                    } : null,
+                    Payer = payer != null ? new PayerModel
+                    {
+                        BusinessNumber = payer.BusinessNumber,
+                        BranchNumber = payer.BranchNumber,
+                        AppliedForNumber = (int)payer.AppliedForNumber,
+                        LegalName = payer.LegalName,
+                        BusinessAddress = payer.BusinessAddress,
+                        Suburb = payer.Suburb,
+                        State = payer.State,
+                        PostCode = payer.PostCode,
+                        Email = payer.Email,
+                        ContactPerson = payer.ContactPerson,
+                        BusinessPhone = payer.BusinessPhone,
+                        MakePayment = (int)payer.MakePayment
+                    } : null,
+                    Employee = employee != null ? new EmployeeModel
+                    {
+                        SuperannuationFund = employee.SuperannuationFund,
+                        Name = employee.Name,
+                        IdentificationNumber = employee.IdentificationNumber,
+                        TaxFileNumber = employee.TaxFileNumber,
+                        FundName = employee.FundName,
+                        FundAddress = employee.FundAddress,
+                        Suburb = employee.Suburb,
+                        State = employee.State,
+                        PostCode = employee.PostCode,
+                        MemberNo = employee.MemberNo,
+                        AccountName = employee.AccountName,
+                        BusinessNumber = employee.BusinessNumber,
+                        SuperannuationProductIdentificationNumber = employee.SuperannuationProductIdentificationNumber,
+                        DaytimePhoneNumber = employee.DaytimePhoneNumber,
+                        HaveAttached = (int)employee.HaveAttached,
+                    } : null,
+                    Employer = employer != null ? new EmployerModel
+                    {
+                        BusinessName = employer.BusinessName,
+                        BusinessNumber = employer.BusinessNumber,
+                        FundName = employer.FundName,
+                        SuperannuationProductIdentificationNumber = employer.SuperannuationProductIdentificationNumber,
+                        FundPhone = employer.FundPhone,
+                        FundWebsite = employer.FundWebsite,
                     } : null
                 };
 
