@@ -6,8 +6,7 @@ using Enrolment.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using System.Configuration;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.IO;
 
 namespace Enrolment.Controllers
 {
@@ -253,5 +252,6 @@ namespace Enrolment.Controllers
                 Message = result.Message
             };
         }
+
     }
 }

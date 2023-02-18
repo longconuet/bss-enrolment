@@ -190,6 +190,7 @@ $(document).ready(function () {
     });
 });
 
+
 function getDetail() {
     $.ajax({
         url: "/Home/StandardInfoDetail/" + $('#email-register').val(),
@@ -249,22 +250,32 @@ function getDetail() {
             if (result.data.employee != null) {
                 var employee = result.data.employee;
                 $("input[name=superannuationFund][value=" + employee.superannuationFund + "]").prop('checked', true);
-                $('#employeeName').val(employee.employeeName);
+                $('#employeeName').val(employee.name);
                 $('#identificationNumber').val(employee.identificationNumber);
-                $('#employeeTaxFileNumber').val(employee.employeeTaxFileNumber);
-                $('#employeeFundName').val(employee.employeeFundName);
-                $('#employeeFundAddress').val(employee.employeeFundAddress);
-                $('#employeeSuburb').val(employee.employeeSuburb);
-                $('#employeeState').val(employee.employeeState);
-                $('#employeePostCode').val(employee.employeePostCode);
+                $('#employeeTaxFileNumber').val(employee.taxFileNumber);
+                $('#employeeFundName').val(employee.fundName);
+                $('#employeeFundAddress').val(employee.fundAddress);
+                $('#employeeSuburb').val(employee.suburb);
+                $('#employeeState').val(employee.state);
+                $('#employeePostCode').val(employee.postCode);
                 $('#memberNo').val(employee.memberNo);
                 $('#accountName').val(employee.accountName);
-                $('#employeeBusinessNumber').val(employee.employeeBusinessNumber);
-                $('#employeeSuperannuationProductIdentificationNumber').val(employee.employeeSuperannuationProductIdentificationNumber);
+                $('#employeeBusinessNumber').val(employee.businessNumber);
+                $('#employeeSuperannuationProductIdentificationNumber').val(employee.superannuationProductIdentificationNumber);
                 $('#daytimePhoneNumber').val(employee.daytimePhoneNumber);
-                if (payer.haveAttached == 1) {
+                if (employee.haveAttached == 1) {
                     $('#haveAttached').prop('checked', true);
                 }
+            }
+
+            if (result.data.employer != null) {
+                var employer = result.data.employer;
+                $('#employerBusinessName').val(employer.businessName);
+                $('#employerBusinessNumber').val(employer.businessNumber);
+                $('#employerFundName').val(employer.fundName);
+                $('#employerSuperannuationProductIdentificationNumber').val(employer.superannuationProductIdentificationNumber);
+                $('#employerFundPhone').val(employer.fundPhone);
+                $('#employerFundWebsite').val(employer.fundWebsite);
             }
         },
         error: function (errormessage) {
