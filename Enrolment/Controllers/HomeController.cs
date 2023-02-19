@@ -1,4 +1,5 @@
 ﻿using Enrolment.Data;
+using Enrolment.Helpers;
 using Enrolment.Models;
 using Enrolment.ModelViews;
 using Enrolment.Requests;
@@ -27,6 +28,26 @@ namespace Enrolment.Controllers
             _context = context;
             _emailSender = emailSender;
             _configuration = configuration;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AjaxUpload(IList<IFormFile> files)
+        {
+            var path = "";
+            foreach (var formFile in files)
+            {
+                if (formFile.Length > 0)
+                {
+                    path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", formFile.FileName);
+                    var filePath = Path.GetTempFileName();
+
+                    using (var stream = System.IO.File.Create(path))
+                    {
+                        await formFile.CopyToAsync(stream);
+                    }
+                }
+            }
+            return Json(true);
         }
 
         public IActionResult Index()
@@ -234,6 +255,16 @@ namespace Enrolment.Controllers
                     .SelectMany(v => v.Errors)
                     .Select(e => e.ErrorMessage));
                 return BadRequest(ModelState);
+            }
+
+            var payeeBirthDay = $"{request.Payee.DayOfBirth}/{request.Payee.MonthOfBirth}/{request.Payee.YearOfBirth}";
+            if (FuncHelper.CheckValidDate(payeeBirthDay))
+            {
+                return new ResponseModel
+                {
+                    Status = 0,
+                    Message = "Invalid birthday"
+                };
             }
 
             var result = await _standardInfoService.Update(request);

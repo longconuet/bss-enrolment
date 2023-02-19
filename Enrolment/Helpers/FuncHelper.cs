@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Enrolment.Helpers
 {
-    public class FuncHelper
+    public static class FuncHelper
     {
         public static string HashString(string text, string salt = "")
         {
@@ -39,6 +40,35 @@ namespace Enrolment.Helpers
         {
             string randomString = RandomString(length);
             return HashString(randomString);
+        }
+
+        public static bool CheckValidDate(string dateStr)
+        {
+            try
+            {
+                string[] formats = { "dd/MM/yyyy", "dd/M/yyyy", "d/M/yyyy", "d/MM/yyyy",
+                        "dd/MM/yy", "dd/M/yy", "d/M/yy", "d/MM/yy"};
+
+                DateTime date;
+                if (!DateTime.TryParseExact(dateStr, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+                {
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static DateTime ParseDateTimeFromString(this string dateString)
+        {
+            string[] formats = { "dd/MM/yyyy", "dd/M/yyyy", "d/M/yyyy", "d/MM/yyyy",
+                    "dd/MM/yy", "dd/M/yy", "d/M/yy", "d/MM/yy"};
+
+            return DateTime.ParseExact(dateString, formats, CultureInfo.InvariantCulture, DateTimeStyles.None);
         }
     }
 }

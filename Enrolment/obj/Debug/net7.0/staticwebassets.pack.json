@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\Enrolment.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\css\\plugins.bundle.css",
+      "PackagePath": "staticwebassets\\css\\plugins.bundle.css"
+    },
+    {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\css\\plugins.bundle.css.map",
+      "PackagePath": "staticwebassets\\css\\plugins.bundle.css.map"
+    },
+    {
       "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -13,12 +21,52 @@
       "PackagePath": "staticwebassets\\css\\studentDetail.css"
     },
     {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\css\\style.bundle.css",
+      "PackagePath": "staticwebassets\\css\\style.bundle.css"
+    },
+    {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\css\\style.bundle.css.map",
+      "PackagePath": "staticwebassets\\css\\style.bundle.css.map"
+    },
+    {
       "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\images\\141005-chang-north-korea-tease_njjqtj-NXPowerLite.jpg",
+      "PackagePath": "staticwebassets\\images\\141005-chang-north-korea-tease_njjqtj-NXPowerLite.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\images\\69eb433592fc2758dd5366322a00f721.jpg",
+      "PackagePath": "staticwebassets\\images\\69eb433592fc2758dd5366322a00f721.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\js\\landing.js",
+      "PackagePath": "staticwebassets\\js\\landing.js"
+    },
+    {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\js\\landing.js.map",
+      "PackagePath": "staticwebassets\\js\\landing.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\js\\plugins.bundle.js",
+      "PackagePath": "staticwebassets\\js\\plugins.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\js\\plugins.bundle.js.map",
+      "PackagePath": "staticwebassets\\js\\plugins.bundle.js.map"
+    },
+    {
       "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\js\\registerEmail.js",
       "PackagePath": "staticwebassets\\js\\registerEmail.js"
+    },
+    {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\js\\scripts.bundle.js",
+      "PackagePath": "staticwebassets\\js\\scripts.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\js\\scripts.bundle.js.map",
+      "PackagePath": "staticwebassets\\js\\scripts.bundle.js.map"
     },
     {
       "Id": "C:\\Users\\Long NT\\Desktop\\git\\bss-enrolment\\Enrolment\\wwwroot\\js\\site.js",

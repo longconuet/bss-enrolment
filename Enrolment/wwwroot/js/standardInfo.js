@@ -191,6 +191,29 @@ $(document).ready(function () {
 });
 
 
+function uploadFiles() {
+    
+    var files = $('#fileUpload')[0].files; //get files
+    var formData = new FormData(); //create form
+
+    for (var i = 0; i != files.length; i++) {
+        formData.append("files", files[i]); //loop through all files and append
+    }
+
+    $.ajax(
+        {
+            url: "/Home/AjaxUpload",
+            data: formData, // send it as formData
+            processData: false,
+            contentType: false,
+            type: "POST", //type is post as we will need to post files
+            success: function (data) {
+                alert("Files Uploaded!");
+            }
+        }
+    );
+}
+
 function getDetail() {
     $.ajax({
         url: "/Home/StandardInfoDetail/" + $('#email-register').val(),
@@ -200,7 +223,7 @@ function getDetail() {
         success: function (result) {
             if (result.status == 0) {
                 toastr.error(result.message, "Error");
-                window.location = "/Home/RegisterEmail";
+                //window.location = "/Home/RegisterEmail";
                 return false;
             }
 
@@ -287,6 +310,14 @@ function getDetail() {
 
 function submit() {
     if ($("#form-info").valid()) {
+
+        //var files = $('#fileUpload')[0].files; //get files
+        //var formData = new FormData(); //create form
+
+        //for (var i = 0; i != files.length; i++) {
+        //    formData.append("Files", files[i]); //loop through all files and append
+        //}
+        
         var obj = {
             EmailRegister: $('#email').val(),
             Payee: {
