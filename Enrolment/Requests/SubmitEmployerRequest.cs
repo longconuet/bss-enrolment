@@ -1,6 +1,6 @@
-﻿namespace Enrolment.ModelViews
+﻿namespace Enrolment.Requests
 {
-    public class EmployerModel
+    public class SubmitEmployerRequest
     {
         public string EmailRegister { get; set; }
         public string BusinessName { get; set; }

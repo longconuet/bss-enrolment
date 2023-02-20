@@ -31,11 +31,6 @@ function registerEmail() {
             dataType: "json",
             async: true,
             processData: false,
-            statusCode: {
-                400: function (responseObject, textStatus, jqXHR) {
-                    toastr.error(responseObject, "Bad request");
-                }
-            },
             success: function (result) {
                 if (result.status == 0) {
                     toastr.error(result.message, "Error");

@@ -1,198 +1,340 @@
 $(document).ready(function () {
-    getDetail();
-
-    var validator = $("#form-info").validate({
-        rules: {
-            taxFileNumber: {
-                required: true
-            },
-            surname: {
-                required: true
-            },
-            firstName: {
-                required: true
-            },
-            nameTitle: {
-                required: true
-            },
-            homeAddress: {
-                required: true
-            },
-            suburb: {
-                required: true
-            },
-            state: {
-                required: true
-            },
-            postCode: {
-                required: true
-            },
-            email: {
-                required: true,
-                email: true
-            },
-            dayOfBirth: {
-                required: true
-            },
-            monthOfBirth: {
-                required: true
-            },
-            yearOfBirth: {
-                required: true
-            },
-            paidBasis: {
-                required: true
-            },
-            residencyStatus: {
-                required: true
-            },
-            claimTaxFree: {
-                required: true
-            },
-            haveLoanProgram: {
-                required: true
-            },
-
-            businessNumber: {
-                required: true
-            },
-            appliedForNumber: {
-                required: true
-            },
-            branchNumber: {
-                required: true
-            },
-            legalName: {
-                required: true
-            },
-            businessAddress: {
-                required: true
-            },
-            suburbPayer: {
-                required: true
-            },
-            statePayer: {
-                required: true
-            },
-            postCodePayer: {
-                required: true
-            },
-            emailPayer: {
-                required: true,
-                email: true
-            },
-            contactPerson: {
-                required: true
-            },
-            businessPhone: {
-                required: true
-            },
-
-            superannuationFund: {
-                required: true
-            },
-            employeeName: {
-                required: true
-            },
-            identificationNumber: {
-                required: true
-            },
-            employeeTaxFileNumber: {
-                required: true
-            },
-            employeeFundName: {
-                required: true
-            },
-            employeeFundAddress: {
-                required: true
-            },
-            employeeSuburb: {
-                required: true
-            },
-            employeeState: {
-                required: true
-            },
-            employeePostCode: {
-                required: true
-            },
-            accountName: {
-                required: true
-            },
-            daytimePhoneNumber: {
-                required: true
-            },
-
-            employerBusinessName: {
-                required: true
-            },
-            employerBusinessNumber: {
-                required: true
-            },
-            employerFundName: {
-                required: true
-            },
-            employerFundWebsite: {
-                required: true
-            },
-        },
-
-        messages: {
-            taxFileNumber: {
-                required: "Tax file number cannot be empty"
-            },
-            surname: {
-                required: "Surname cannot be empty"
-            },
-            firstName: {
-                required: "Max student number cannot be empty"
-            },
-            nameTitle: {
-                required: "Please select a name title"
-            },
-            homeAddress: {
-                required: "Home address cannot be empty"
-            },
-            suburb: {
-                required: "Suburb/town/locality cannot be empty"
-            },
-            state: {
-                required: "State/territory cannot be empty"
-            },
-            postCode: {
-                required: "PostCode cannot be empty"
-            },
-            email: {
-                required: "Primary e-mail address cannot be empty",
-                email: "Email is invalid"
-            },
-            dayOfBirth: {
-                required: "Choose day of birth"
-            },
-            monthOfBirth: {
-                required: "Choose month of birth"
-            },
-            yearOfBirth: {
-                required: "Choose year of birth"
-            },
-            paidBasis: {
-                required: "Please select one"
-            },
-            residencyStatus: {
-                required: "Please select one"
-            },
-            claimTaxFree: {
-                required: "Please select one"
-            },
-            haveLoanProgram: {
-                required: "Please select one"
-            },
-        }
-    });
+    getPayeeDetail();
 });
 
+var validator = $("#form-info").validate({
+    rules: {
+        taxFileNumber: {
+            required: true
+        },
+        surname: {
+            required: true
+        },
+        firstName: {
+            required: true
+        },
+        nameTitle: {
+            required: true
+        },
+        homeAddress: {
+            required: true
+        },
+        suburb: {
+            required: true
+        },
+        state: {
+            required: true
+        },
+        postCode: {
+            required: true
+        },
+        email: {
+            required: true,
+            email: true
+        },
+        dayOfBirth: {
+            required: true
+        },
+        monthOfBirth: {
+            required: true
+        },
+        yearOfBirth: {
+            required: true
+        },
+        paidBasis: {
+            required: true
+        },
+        residencyStatus: {
+            required: true
+        },
+        claimTaxFree: {
+            required: true
+        },
+        haveLoanProgram: {
+            required: true
+        },
 
-function uploadFiles() {
-    
+        businessNumber: {
+            required: true
+        },
+        appliedForNumber: {
+            required: true
+        },
+        branchNumber: {
+            required: true
+        },
+        legalName: {
+            required: true
+        },
+        businessAddress: {
+            required: true
+        },
+        suburbPayer: {
+            required: true
+        },
+        statePayer: {
+            required: true
+        },
+        postCodePayer: {
+            required: true
+        },
+        emailPayer: {
+            required: true,
+            email: true
+        },
+        contactPerson: {
+            required: true
+        },
+        businessPhone: {
+            required: true
+        },
+
+        superannuationFund: {
+            required: true
+        },
+        employeeName: {
+            required: true
+        },
+        identificationNumber: {
+            required: true
+        },
+        employeeTaxFileNumber: {
+            required: true
+        },
+        employeeFundName: {
+            required: true
+        },
+        employeeFundAddress: {
+            required: true
+        },
+        employeeSuburb: {
+            required: true
+        },
+        employeeState: {
+            required: true
+        },
+        employeePostCode: {
+            required: true
+        },
+        accountName: {
+            required: true
+        },
+        daytimePhoneNumber: {
+            required: true
+        },
+
+        employerBusinessName: {
+            required: true
+        },
+        employerBusinessNumber: {
+            required: true
+        },
+        employerFundName: {
+            required: true
+        },
+        employerFundWebsite: {
+            required: true
+        },
+    },
+
+    messages: {
+        taxFileNumber: {
+            required: "Tax file number cannot be empty"
+        },
+        surname: {
+            required: "Surname cannot be empty"
+        },
+        firstName: {
+            required: "Max student number cannot be empty"
+        },
+        nameTitle: {
+            required: "Please select a name title"
+        },
+        homeAddress: {
+            required: "Home address cannot be empty"
+        },
+        suburb: {
+            required: "Suburb/town/locality cannot be empty"
+        },
+        state: {
+            required: "State/territory cannot be empty"
+        },
+        postCode: {
+            required: "PostCode cannot be empty"
+        },
+        email: {
+            required: "Primary e-mail address cannot be empty",
+            email: "Email is invalid"
+        },
+        dayOfBirth: {
+            required: "Choose day of birth"
+        },
+        monthOfBirth: {
+            required: "Choose month of birth"
+        },
+        yearOfBirth: {
+            required: "Choose year of birth"
+        },
+        paidBasis: {
+            required: "Please select one"
+        },
+        residencyStatus: {
+            required: "Please select one"
+        },
+        claimTaxFree: {
+            required: "Please select one"
+        },
+        haveLoanProgram: {
+            required: "Please select one"
+        },
+    }
+});
+
+var payeeValidator = $("#payeeForm").validate({
+    rules: {
+        taxFileNumber: {
+            required: true
+        },
+        surname: {
+            required: true
+        },
+        firstName: {
+            required: true
+        },
+        nameTitle: {
+            required: true
+        },
+        homeAddress: {
+            required: true
+        },
+        suburb: {
+            required: true
+        },
+        state: {
+            required: true
+        },
+        postCode: {
+            required: true
+        },
+        email: {
+            required: true,
+            email: true
+        },
+        dayOfBirth: {
+            required: true
+        },
+        monthOfBirth: {
+            required: true
+        },
+        yearOfBirth: {
+            required: true
+        },
+        paidBasis: {
+            required: true
+        },
+        residencyStatus: {
+            required: true
+        },
+        claimTaxFree: {
+            required: true
+        },
+        haveLoanProgram: {
+            required: true
+        }
+    },
+
+    messages: {
+        taxFileNumber: {
+            required: "Tax file number cannot be empty"
+        },
+        surname: {
+            required: "Surname cannot be empty"
+        },
+        firstName: {
+            required: "Max student number cannot be empty"
+        },
+        nameTitle: {
+            required: "Please select a name title"
+        },
+        homeAddress: {
+            required: "Home address cannot be empty"
+        },
+        suburb: {
+            required: "Suburb/town/locality cannot be empty"
+        },
+        state: {
+            required: "State/territory cannot be empty"
+        },
+        postCode: {
+            required: "PostCode cannot be empty"
+        },
+        email: {
+            required: "Primary e-mail address cannot be empty",
+            email: "Email is invalid"
+        },
+        dayOfBirth: {
+            required: "Choose day of birth"
+        },
+        monthOfBirth: {
+            required: "Choose month of birth"
+        },
+        yearOfBirth: {
+            required: "Choose year of birth"
+        },
+        paidBasis: {
+            required: "Please select one"
+        },
+        residencyStatus: {
+            required: "Please select one"
+        },
+        claimTaxFree: {
+            required: "Please select one"
+        },
+        haveLoanProgram: {
+            required: "Please select one"
+        },
+    }
+});
+
+var employeevalidator = $("#employeeForm").validate({
+    rules: {
+        superannuationFund: {
+            required: true
+        },
+        employeeName: {
+            required: true
+        },
+        identificationNumber: {
+            required: true
+        },
+        employeeTaxFileNumber: {
+            required: true
+        },
+        employeeFundName: {
+            required: true
+        },
+        employeeFundAddress: {
+            required: true
+        },
+        employeeSuburb: {
+            required: true
+        },
+        employeeState: {
+            required: true
+        },
+        employeePostCode: {
+            required: true
+        },
+        accountName: {
+            required: true
+        },
+        daytimePhoneNumber: {
+            required: true
+        }
+    }
+});
+
+function uploadFile() {
     var files = $('#fileUpload')[0].files; //get files
     var formData = new FormData(); //create form
 
@@ -207,8 +349,14 @@ function uploadFiles() {
             processData: false,
             contentType: false,
             type: "POST", //type is post as we will need to post files
-            success: function (data) {
-                alert("Files Uploaded!");
+            success: function (result) {
+                if (result.status == 0) {
+                    toastr.error(result.message, "Error");
+                    return false;
+                }
+                else {
+                    $('#fileUploadPath').val(result.data);
+                }
             }
         }
     );
@@ -308,18 +456,110 @@ function getDetail() {
     return false;
 }
 
+function getPayeeDetail() {
+    $('#step-content-payee').addClass('current').removeClass('pending');
+    $('#step-payee').addClass('current').removeClass('pending');
+
+    $('#step-content-employee').removeClass('current').addClass('pending');
+    $('#step-employee').removeClass('current').addClass('pending');
+
+    $.ajax({
+        url: "/Home/PayeeDetail/" + $('#email-register').val(),
+        typr: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            if (result.status == 0) {
+                toastr.error(result.message, "Error");
+                //window.location = "/Home/RegisterEmail";
+                return false;
+            }
+
+            console.log(result.data);
+            if (result.data != null) {
+                var payee = result.data;
+                $('#taxFileNumber').val(payee.taxFileNumber);
+                $('#surname').val(payee.surname);
+                $('#firstName').val(payee.firstName);
+                $('#otherName').val(payee.otherName);
+                $('#homeAddress').val(payee.homeAddress);
+                $('#suburb').val(payee.suburb);
+                $('#state').val(payee.state);
+                $('#postCode').val(payee.postCode);
+                $('#previousFamilyName').val(payee.previousFamilyName);
+                $('#email').val(payee.email);
+
+                $('#dayOfBirth').val(payee.dayOfBirth);
+                $('#monthOfBirth').val(payee.monthOfBirth);
+                $('#yearOfBirth').val(payee.yearOfBirth);
+
+                $("input[name=nameTitle][value=" + payee.nameTitle + "]").prop('checked', true);
+                $("input[name=paidBasis][value=" + payee.paidBasis + "]").prop('checked', true);
+                $("input[name=residencyStatus][value=" + payee.residencyStatus + "]").prop('checked', true);
+                $("input[name=claimTaxFree][value=" + payee.claimTaxFree + "]").prop('checked', true);
+                $("input[name=haveLoanProgram][value=" + payee.haveLoanProgram + "]").prop('checked', true);
+            }
+        },
+        error: function (errormessage) {
+            toastr.error(errormessage.responseText, "Error occurred");
+        }
+    });
+    return false;
+}
+
+function getEmployeeDetail() {
+    $('#step-content-employee').addClass('current').removeClass('pending');
+    $('#step-employee').addClass('current').removeClass('pending');
+
+    $('#step-content-payee').removeClass('current').addClass('pending');
+    $('#step-payee').removeClass('current').addClass('pending');
+
+    $.ajax({
+        url: "/Home/EmployeeDetail/" + $('#email-register').val(),
+        typr: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            if (result.status == 0) {
+                toastr.error(result.message, "Error");
+                //window.location = "/Home/RegisterEmail";
+                return false;
+            }
+
+            console.log(result.data);
+            if (result.data != null) {
+                var employee = result.data;
+                $("input[name=superannuationFund][value=" + employee.superannuationFund + "]").prop('checked', true);
+                $('#employeeName').val(employee.name);
+                $('#identificationNumber').val(employee.identificationNumber);
+                $('#employeeTaxFileNumber').val(employee.taxFileNumber);
+                $('#employeeFundName').val(employee.fundName);
+                $('#employeeFundAddress').val(employee.fundAddress);
+                $('#employeeSuburb').val(employee.suburb);
+                $('#employeeState').val(employee.state);
+                $('#employeePostCode').val(employee.postCode);
+                $('#memberNo').val(employee.memberNo);
+                $('#accountName').val(employee.accountName);
+                $('#employeeBusinessNumber').val(employee.businessNumber);
+                $('#employeeSuperannuationProductIdentificationNumber').val(employee.superannuationProductIdentificationNumber);
+                $('#daytimePhoneNumber').val(employee.daytimePhoneNumber);
+                if (employee.haveAttached == 1) {
+                    $('#haveAttached').prop('checked', true);
+                }
+            }
+        },
+        error: function (errormessage) {
+            toastr.error(errormessage.responseText, "Error occurred");
+        }
+    });
+    return false;
+}
+
 function submit() {
-    if ($("#form-info").valid()) {
-
-        //var files = $('#fileUpload')[0].files; //get files
-        //var formData = new FormData(); //create form
-
-        //for (var i = 0; i != files.length; i++) {
-        //    formData.append("Files", files[i]); //loop through all files and append
-        //}
-        
+    if ($("#form-info").valid()) {        
         var obj = {
             EmailRegister: $('#email').val(),
+            FilePath: $('#fileUploadPath').val(),
             Payee: {
                 TaxFileNumber: $('#taxFileNumber').val(),
                 NameTitle: parseInt($("input[name='nameTitle']:checked").val()),
@@ -381,6 +621,7 @@ function submit() {
             }
         };
 
+        
         //console.log(obj);
 
         $.ajax({
@@ -410,4 +651,96 @@ function submit() {
         });
     }
     
+}
+
+function submitPayee() {
+    if ($("#payeeForm").valid()) {
+        var obj = {
+            EmailRegister: $('#email-register').val(),
+            TaxFileNumber: $('#taxFileNumber').val(),
+            NameTitle: parseInt($("input[name='nameTitle']:checked").val()),
+            Surname: $('#surname').val(),
+            FirstName: $('#firstName').val(),
+            OtherName: $('#otherName').val(),
+            HomeAddress: $('#homeAddress').val(),
+            Suburb: $('#suburb').val(),
+            State: $('#state').val(),
+            PostCode: $('#postCode').val(),
+            PreviousFamilyName: $('#previousFamilyName').val(),
+            Email: $('#email').val(),
+            DayOfBirth: parseInt($('#dayOfBirth').val()),
+            MonthOfBirth: parseInt($('#monthOfBirth').val()),
+            YearOfBirth: parseInt($('#yearOfBirth').val()),
+            PaidBasis: parseInt($("input[name='paidBasis']:checked").val()),
+            ResidencyStatus: parseInt($("input[name='residencyStatus']:checked").val()),
+            ClaimTaxFree: parseInt($("input[name='claimTaxFree']:checked").val()),
+            HaveLoanProgram: parseInt($("input[name='haveLoanProgram']:checked").val())
+        };
+
+        $.ajax({
+            url: "/Home/SubmitPayeeInfo",
+            data: JSON.stringify(obj),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            async: true,
+            processData: false,
+            success: function (result) {
+                if (result.status == 0) {
+                    toastr.error(result.message, "Error");
+                    return false;
+                }
+
+                toastr.success(result.message, 'Success');
+                getEmployeeDetail();
+            },
+            error: function (errormessage) {
+                toastr.error(errormessage.responseText, "Error occurred");
+            }
+        });
+    }
+}
+
+function submitEmployee() {
+    if ($("#employeeForm").valid()) {
+        var obj = {
+            EmailRegister: $('#email-register').val(),
+            SuperannuationFund: parseInt($("input[name='superannuationFund']:checked").val()),
+            Name: $('#employeeName').val(),
+            IdentificationNumber: $('#identificationNumber').val(),
+            TaxFileNumber: $('#employeeTaxFileNumber').val(),
+            FundName: $('#employeeFundName').val(),
+            FundAddress: $('#employeeFundAddress').val(),
+            Suburb: $('#employeeSuburb').val(),
+            State: $('#employeeState').val(),
+            PostCode: $('#employeePostCode').val(),
+            MemberNo: $('#memberNo').val(),
+            AccountName: $('#accountName').val(),
+            BusinessNumber: $('#employeeBusinessNumber').val(),
+            SuperannuationProductIdentificationNumber: $('#employeeSuperannuationProductIdentificationNumber').val(),
+            DaytimePhoneNumber: $('#daytimePhoneNumber').val(),
+            HaveAttached: $('#haveAttached').prop('checked') ? 1 : 0,
+        };
+
+        $.ajax({
+            url: "/Home/SubmitEmployeeInfo",
+            data: JSON.stringify(obj),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            async: true,
+            processData: false,
+            success: function (result) {
+                if (result.status == 0) {
+                    toastr.error(result.message, "Error");
+                    return false;
+                }
+
+                toastr.success(result.message, 'Success');
+            },
+            error: function (errormessage) {
+                toastr.error(errormessage.responseText, "Error occurred");
+            }
+        });
+    }
 }

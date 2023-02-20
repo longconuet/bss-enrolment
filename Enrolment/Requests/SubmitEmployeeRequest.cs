@@ -1,8 +1,8 @@
 ﻿using static Enrolment.Enums.CommonEnum;
 
-namespace Enrolment.ModelViews
+namespace Enrolment.Requests
 {
-    public class EmployeeModel
+    public class SubmitEmployeeRequest
     {
         public string EmailRegister { get; set; }
         public int SuperannuationFund { get; set; }
@@ -19,7 +19,7 @@ namespace Enrolment.ModelViews
         public string? BusinessNumber { get; set; }
         public string? SuperannuationProductIdentificationNumber { get; set; }
         public string DaytimePhoneNumber { get; set; }
-        public int HaveAttached { get; set; }
+        public YesNoEnum HaveAttached { get; set; }
         public string? Signature { get; set; }
         public string? DeclarationDate { get; set; }
     }

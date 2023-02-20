@@ -8,6 +8,7 @@
         public EmployeeRequest Employee { get; set; }
         public EmployerRequest Employer { get; set; }
 
+        public string? FilePath { get; set; }
         //public IList<IFormFile> Files {get; set; }
     }
 }
