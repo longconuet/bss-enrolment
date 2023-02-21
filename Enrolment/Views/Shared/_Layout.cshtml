@@ -14,28 +14,7 @@
 		<link href="~/css/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="~/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<style>
-		    .required-star {
-		        color: red;
-		    }
-		    .error {
-		        color: red;
-		        font-style: italic
-		    }
-		    input[type=text].error {
-		        border: red 1px solid;
-		    }
-			.header-fixed .header{
-				background-color: #2799E3 !important;
-    			height: 135px !important;
-			}
-			.footer{
-				background-color: #2799E3 !important;
-				color: #fff !important;
-				position: initial !important;
-			}
-			#kt_content{
-				background-color: #e9e9e9;
-			}
+		    
 		</style>
     <style>
         @await RenderSectionAsync("Style", required: false)
@@ -71,7 +50,7 @@
 								<!--begin::Topbar-->
 								<div class="d-flex align-items-stretch flex-shrink-0">
 									<!--begin::Toolbar wrapper-->
-									<a asp-controller="Home" asp-action="RegisterEmail" class="btn btn-primary" type="button">Register</a>
+									<a href="/Home/RegisterEmail" style="color: #fff; padding-top: 46px; font-size: 1.2rem;">Register</a>
 									<!--end::Toolbar wrapper-->
 								</div>
 								<!--end::Topbar-->
@@ -126,7 +105,6 @@
 		<script src="~/js/site.js" asp-append-version="true"></script>
 		<script src="~/js/scripts.bundle.js" asp-append-version="true"></script>
 		<script src="~/js/plugins.bundle.js" asp-append-version="true"></script>
-		<script src="~/js/landing.js" asp-append-version="true"></script>
 		<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>

@@ -14,6 +14,7 @@ namespace Enrolment.Services
         Task<ServiceResponse> UpdatePayer(SubmitPayerRequest request);
         Task<ServiceResponse> UpdateEmployee(SubmitEmployeeRequest request);
         Task<ServiceResponse> UpdateEmployer(SubmitEmployerRequest request);
+        Task<ServiceResponse> UpdateIdentityProofImage(string email, IFormFile imageFile);
     }
 
     public class StandardInfoService : IStandardInfoService
@@ -572,5 +573,66 @@ namespace Enrolment.Services
                 };
             }
         }
-    }
+
+		public async Task<ServiceResponse> UpdateIdentityProofImage(string email, IFormFile imageFile)
+		{
+			try
+			{
+				var emailRegister = await _context.EmailRegisters.Include(x => x.IdentityProofImage)
+					.FirstOrDefaultAsync(x => x.Email == email && x.IsConfirmed && x.IsDeleted == 0);
+				if (emailRegister == null)
+				{
+					return new ServiceResponse
+					{
+						Status = 0,
+						Message = "Invalid email"
+					};
+				}
+
+                // upload file
+                string relativePath = $"images/{imageFile.FileName}";
+				string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", relativePath);
+				var filePath = Path.GetTempFileName();
+
+				using (var stream = System.IO.File.Create(path))
+				{
+					await imageFile.CopyToAsync(stream);
+				}
+
+				if (emailRegister.IdentityProofImage == null)
+				{
+					_context.IdentityProofImages.Add(new IdentityProofImage
+					{
+						Path = relativePath,
+						UpdatedAt = DateTime.Now,
+						EmailRegister = emailRegister
+					});
+				}
+				else
+				{
+					var identityProofImage = emailRegister.IdentityProofImage;
+					identityProofImage.Path = relativePath;
+					identityProofImage.UpdatedAt = DateTime.Now;
+
+					_context.IdentityProofImages.Update(identityProofImage);
+				}
+
+				await _context.SaveChangesAsync();
+
+				return new ServiceResponse
+				{
+					Status = 1,
+					Message = "Update identity proof image successfully"
+				};
+			}
+			catch (Exception e)
+			{
+				return new ServiceResponse
+				{
+					Status = 0,
+					Message = e.Message
+				};
+			}
+		}
+	}
 }

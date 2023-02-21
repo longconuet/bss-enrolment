@@ -20,3 +20,44 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.required-star {
+    color: red;
+}
+
+.error {
+    color: red;
+    font-style: italic
+}
+
+input[type=text].error {
+    border: red 1px solid;
+}
+
+.header-fixed .header {
+    background-color: #2799E3 !important;
+    height: 120px !important;
+}
+
+.footer {
+    background-color: #2799E3 !important;
+    color: #fff !important;
+    position: initial !important;
+    line-height: 30px !important;
+}
+
+#kt_content {
+    background-color: #e9e9e9;
+}
+
+.stepper-icon-active {
+    border: 2px solid #2799e3;
+}
+
+.stepper-number-active {
+    color: #fff !important;
+}
+
+.stepper-title-active {
+    color: #2799e3 !important;
+}

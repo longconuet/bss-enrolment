@@ -1,5 +1,4 @@
 ﻿using Enrolment.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Enrolment.Data
@@ -16,6 +15,7 @@ namespace Enrolment.Data
         public DbSet<Payer> Payers { set; get; }
         public DbSet<Employee> Employees { set; get; }
         public DbSet<Employer> Employers { set; get; }
+        public DbSet<IdentityProofImage> IdentityProofImages { set; get; }
 
 
         //protected override void OnModelCreating(ModelBuilder builder)

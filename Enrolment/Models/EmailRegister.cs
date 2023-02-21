@@ -18,5 +18,7 @@ namespace Enrolment.Models
         public virtual Employee Employee { get; set; }
         public int? EmployerId { get; set; }
         public virtual Employer Employer { get; set; }
-    }
+		public int? IdentityProofImageId { get; set; }
+		public virtual IdentityProofImage IdentityProofImage { get; set; }
+	}
 }

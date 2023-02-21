@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\images\\Visa-b2.png"
     },
     {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\images\\photo-1533450718592-29d45635f0a9.jpg",
+      "PackagePath": "staticwebassets\\images\\photo-1533450718592-29d45635f0a9.jpg"
+    },
+    {
       "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\js\\landing.js",
       "PackagePath": "staticwebassets\\js\\landing.js"
     },

@@ -6,44 +6,68 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6" id="email-content">
-        @if (ViewBag.IsValidEmail)
-        {
-            @if (ViewBag.HasConfirmedYet)
-            {
-                <div class="alert alert-warning" role="alert">
-                    Your email was verified before!
+<div class="position-relative z-index-2">
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Card-->
+        <div class="card mt-7" id="card-payee" data-kt-scroll-offset="85" style="filter: drop-shadow(0px 0px 40px rgba(68, 81, 96, 0.08))">
+            <!--begin::Card body-->
+            <div class="card-body">
+                <!--begin::Heading-->
+                <div class="text-center mb-5 mb-lg-10">
+                    <!--begin::Title-->
+                    <h3 class="fs-2hx text-dark mb-5" id="portfolio" data-kt-scroll-offset="{default: 100, lg: 150}">Register</h3>
+                    <!--end::Title-->
                 </div>
-                <div style="float: right">
-                    <a id="continue" type="button" class="btn btn-primary" asp-controller="Home" asp-action="StandardInfo" asp-route-email="@ViewBag.Email">Continue</a>
+                <!--end::Heading-->
+                <!--begin::Tabs content-->
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6" id="email-content">
+                        @if (ViewBag.IsValidEmail)
+                        {
+                            @if (ViewBag.HasConfirmedYet)
+                            {
+                                <div class="alert alert-warning" role="alert">
+                                    Your email was verified before!
+                                </div>
+                                <div style="float: right">
+                                    <a id="continue" type="button" class="btn btn-primary" asp-controller="Home" asp-action="StandardInfo" asp-route-email="@ViewBag.Email">Continue</a>
+                                </div>
+                            }
+                            else
+                            {
+                                @if (ViewBag.HasError == false)
+                                {
+                                    <div class="alert alert-success" role="alert">
+                                        Your email is verified successfully!
+                                    </div>
+                                    <div style="float: right">
+                                        <a id="continue" type="button" class="btn btn-primary" asp-controller="Home" asp-action="StandardInfo" asp-route-email="@ViewBag.Email">Continue</a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        Something went wrong!
+                                    </div>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                Your email is invalid!
+                            </div>
+                        }
+                    </div>
                 </div>
-            }
-            else
-            {
-                @if (ViewBag.HasError == false)
-                {
-                    <div class="alert alert-success" role="alert">
-                        Your email is verified successfully!
-                    </div>
-                    <div style="float: right">
-                        <a id="continue" type="button" class="btn btn-primary" asp-controller="Home" asp-action="StandardInfo" asp-route-email="@ViewBag.Email">Continue</a>
-                    </div>
-                }
-                else
-                {
-                    <div class="alert alert-danger" role="alert">
-                        Something went wrong!
-                    </div>
-                }
-            }
-        }
-        else
-        {
-            <div class="alert alert-danger" role="alert">
-                Your email is invalid!
+                <!--end::Tabs content-->
             </div>
-        }        
+            <!--end::Card body-->
+        </div>
+        <!--end::Card-->
+
     </div>
+    <!--end::Container-->
 </div>

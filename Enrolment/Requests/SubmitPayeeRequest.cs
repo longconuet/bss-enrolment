@@ -25,5 +25,6 @@ namespace Enrolment.Requests
         public YesNoEnum HaveLoanProgram { get; set; }
         public string? Signature { get; set; }
         public string? DeclarationDate { get; set; }
+        public string? FilePath { get; set; }
     }
 }

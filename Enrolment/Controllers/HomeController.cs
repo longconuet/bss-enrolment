@@ -657,5 +657,74 @@ namespace Enrolment.Controllers
             };
         }
 
-    }
+		[HttpGet("Home/IdentityProofImage/{email}")]
+		public async Task<ActionResult<ResponseModel<string>>> IdentityProofImage(string email)
+		{
+			try
+			{
+				var checkEmail = await _context.EmailRegisters.Include(x => x.IdentityProofImage)
+					.FirstOrDefaultAsync(x => !string.IsNullOrEmpty(x.HashCode)
+					&& x.Email == email
+					&& x.IsConfirmed
+					&& x.IsDeleted == 0);
+				if (checkEmail == null)
+				{
+					return new ResponseModel<string>
+					{
+						Status = 0,
+						Message = "Invalid email"
+					};
+				}
+
+				var baseUrl = _configuration["BaseUrl"];
+				return new ResponseModel<string>
+				{
+					Status = 1,
+					Data = checkEmail.IdentityProofImage != null ? $"{baseUrl}/{checkEmail.IdentityProofImage.Path}" : null
+				};
+			}
+			catch (Exception e)
+			{
+				return new ResponseModel<string>
+				{
+					Status = 0,
+					Message = "Server error"
+				};
+			}
+		}
+
+		[HttpPost("/Home/SubmitIdentityProofImage/{emailRegister}")]
+		public async Task<ActionResult<ResponseModel>> SubmitIdentityProofImage(string emailRegister, IFormFile imageFile)
+		{
+			// validate
+			if (!ModelState.IsValid)
+			{
+				var message = string.Join(" </br> ", ModelState.Values
+					.SelectMany(v => v.Errors)
+					.Select(e => e.ErrorMessage));
+				return BadRequest(ModelState);
+			}
+
+			var result = await _standardInfoService.UpdateIdentityProofImage(emailRegister, imageFile);
+			if (result.Status == 0)
+			{
+				return new ResponseModel
+				{
+					Status = 0,
+					Message = result.Message
+				};
+			}
+
+			return new ResponseModel
+			{
+				Status = 1,
+				Message = result.Message
+			};
+		}
+
+		public IActionResult Complete()
+		{
+			return View();
+		}
+	}
 }

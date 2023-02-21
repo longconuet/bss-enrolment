@@ -334,6 +334,15 @@ var employeevalidator = $("#employeeForm").validate({
     }
 });
 
+var uploadValidator = $("#identityProofForm").validate({
+    rules: {
+        imageFile: {
+            required: true,
+            extension: "png|jpg|jpeg"
+        }
+    }
+});
+
 function uploadFile() {
     var files = $('#fileUpload')[0].files; //get files
     var formData = new FormData(); //create form
@@ -457,11 +466,7 @@ function getDetail() {
 }
 
 function getPayeeDetail() {
-    $('#step-content-payee').addClass('current').removeClass('pending');
-    $('#step-payee').addClass('current').removeClass('pending');
-
-    $('#step-content-employee').removeClass('current').addClass('pending');
-    $('#step-employee').removeClass('current').addClass('pending');
+    activeStepper('payee');
 
     $.ajax({
         url: "/Home/PayeeDetail/" + $('#email-register').val(),
@@ -471,7 +476,7 @@ function getPayeeDetail() {
         success: function (result) {
             if (result.status == 0) {
                 toastr.error(result.message, "Error");
-                //window.location = "/Home/RegisterEmail";
+                window.location = "/Home/RegisterEmail";
                 return false;
             }
 
@@ -488,6 +493,7 @@ function getPayeeDetail() {
                 $('#postCode').val(payee.postCode);
                 $('#previousFamilyName').val(payee.previousFamilyName);
                 $('#email').val(payee.email);
+                $('#fileUploadPath').val(payee.filePath);
 
                 $('#dayOfBirth').val(payee.dayOfBirth);
                 $('#monthOfBirth').val(payee.monthOfBirth);
@@ -507,12 +513,22 @@ function getPayeeDetail() {
     return false;
 }
 
-function getEmployeeDetail() {
-    $('#step-content-employee').addClass('current').removeClass('pending');
-    $('#step-employee').addClass('current').removeClass('pending');
+function activeStepper(item) {
+    // content
+    $('.step-content').removeClass('current');
+    $('#step-content-' + item).addClass('current');
 
-    $('#step-content-payee').removeClass('current').addClass('pending');
-    $('#step-payee').removeClass('current').addClass('pending');
+    // icon
+    $('.stepper-icon').removeClass('stepper-icon-active');
+    $('#stepper-icon-' + item).addClass('stepper-icon-active');
+
+    // title
+    $('.stepper-title').removeClass('stepper-title-active');
+    $('#stepper-title-' + item).addClass('stepper-title-active');
+}
+
+function getEmployeeDetail() {
+    activeStepper('employee');
 
     $.ajax({
         url: "/Home/EmployeeDetail/" + $('#email-register').val(),
@@ -522,11 +538,10 @@ function getEmployeeDetail() {
         success: function (result) {
             if (result.status == 0) {
                 toastr.error(result.message, "Error");
-                //window.location = "/Home/RegisterEmail";
+                window.location = "/Home/RegisterEmail";
                 return false;
             }
 
-            console.log(result.data);
             if (result.data != null) {
                 var employee = result.data;
                 $("input[name=superannuationFund][value=" + employee.superannuationFund + "]").prop('checked', true);
@@ -674,7 +689,8 @@ function submitPayee() {
             PaidBasis: parseInt($("input[name='paidBasis']:checked").val()),
             ResidencyStatus: parseInt($("input[name='residencyStatus']:checked").val()),
             ClaimTaxFree: parseInt($("input[name='claimTaxFree']:checked").val()),
-            HaveLoanProgram: parseInt($("input[name='haveLoanProgram']:checked").val())
+            HaveLoanProgram: parseInt($("input[name='haveLoanProgram']:checked").val()),
+            FilePath: $('#fileUploadPath').val()
         };
 
         $.ajax({
@@ -737,10 +753,78 @@ function submitEmployee() {
                 }
 
                 toastr.success(result.message, 'Success');
+                //window.location = "/Home/Complete";
+                getIdentityProofImage();
             },
             error: function (errormessage) {
                 toastr.error(errormessage.responseText, "Error occurred");
             }
         });
     }
+}
+
+function getIdentityProofImage() {
+    activeStepper('identity-proof');
+
+    $.ajax({
+        url: "/Home/IdentityProofImage/" + $('#email-register').val(),
+        typr: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            if (result.status == 0) {
+                toastr.error(result.message, "Error");
+                window.location = "/Home/RegisterEmail";
+                return false;
+            }
+
+            if (result.data != null) {
+                $('#imageFile').attr('src', result.data);
+                $('#frame').attr('src', result.data);
+            }
+        },
+        error: function (errormessage) {
+            toastr.error(errormessage.responseText, "Error occurred");
+        }
+    });
+    return false;
+}
+
+function submitIdentityProofImage() {
+    if ($("#identityProofForm").valid()) {
+        var files = $('#imageFile')[0].files; //get files
+        var formData = new FormData(); //create form
+
+        formData.append("imageFile", files[0]);
+        //formData.append("emailRegister", $('#email-register').val());
+
+        $.ajax({
+            url: "/Home/SubmitIdentityProofImage/" + $('#email-register').val(),
+            data: formData,
+            type: "POST",
+            contentType: false,
+            async: true,
+            processData: false,
+            success: function (result) {
+                if (result.status == 0) {
+                    toastr.error(result.message, "Error");
+                    return false;
+                }
+
+                toastr.success(result.message, 'Success');
+                window.location = "/Home/Complete";
+            },
+            error: function (errormessage) {
+                toastr.error(errormessage.responseText, "Error occurred");
+            }
+        });
+    }
+}
+
+function preview() {
+    frame.src = URL.createObjectURL(event.target.files[0]);
+}
+function clearImage() {
+    document.getElementById('imageFile').value = null;
+    frame.src = "";
 }

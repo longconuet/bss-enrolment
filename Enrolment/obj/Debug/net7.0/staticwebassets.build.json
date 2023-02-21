@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rybW8vUZ/y44goujwZC3Pn6zgONyUSJ0wsOBcvDZmtk=",
+  "Hash": "it4cxmFEILeQ3JxarNIZq+12Ibs0EcbvB/iRNX6wwrg=",
   "Source": "Enrolment",
   "BasePath": "_content/Enrolment",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\images\\photo-1533450718592-29d45635f0a9.jpg",
+      "SourceId": "Enrolment",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\",
+      "BasePath": "_content/Enrolment",
+      "RelativePath": "images/photo-1533450718592-29d45635f0a9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\photo-1533450718592-29d45635f0a9.jpg"
     },
     {
       "Identity": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\images\\Visa-b2.png",

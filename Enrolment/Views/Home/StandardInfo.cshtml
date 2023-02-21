@@ -24,43 +24,62 @@
 					<!--begin::Nav-->
 					<div class="stepper-nav">
 						<!--begin::Step 1-->
-						<div class="stepper-item current" data-kt-stepper-element="nav" id="step-payee">
+						<div class="stepper-item" data-kt-stepper-element="nav" id="step-payee">
 							<!--begin::Line-->
 							<div class="stepper-line w-40px"></div>
 							<!--end::Line-->
 							<!--begin::Icon-->
-							<div class="stepper-icon w-40px h-40px">
+							<div class="stepper-icon w-40px h-40px" id="stepper-icon-payee">
 								<i class="stepper-check fas fa-check"></i>
 								<span class="stepper-number">1</span>
 							</div>
 							<!--end::Icon-->
 							<!--begin::Label-->
 							<div class="stepper-label">
-								<h3 class="stepper-title">Payee</h3>
+								<h3 class="stepper-title" id="stepper-title-payee" style="cursor: pointer" onclick="getPayeeDetail()">Payee</h3>
 								<div class="stepper-desc fw-bold">To be completed by the PAYEE</div>
 							</div>
 							<!--end::Label-->
 						</div>
 						<!--end::Step 1-->
 						<!--begin::Step 2-->
-						<div class="stepper-item pending" data-kt-stepper-element="nav" id="step-employee">
+						<div class="stepper-item" data-kt-stepper-element="nav" id="step-employee">
 							<!--begin::Line-->
 							<div class="stepper-line w-40px"></div>
 							<!--end::Line-->
 							<!--begin::Icon-->
-							<div class="stepper-icon w-40px h-40px">
+							<div class="stepper-icon w-40px h-40px" id="stepper-icon-employee">
 								<i class="stepper-check fas fa-check"></i>
 								<span class="stepper-number">2</span>
 							</div>
 							<!--end::Icon-->
 							<!--begin::Label-->
 							<div class="stepper-label">
-								<h3 class="stepper-title">Employee</h3>
+								<h3 class="stepper-title" id="stepper-title-employee" style="cursor: pointer" onclick="getEmployeeDetail()">Employee</h3>
 								<div class="stepper-desc fw-bold">Employee to complete</div>
 							</div>
 							<!--end::Label-->
 						</div>
 						<!--end::Step 2-->
+						<!--begin::Step 3-->
+						<div class="stepper-item" data-kt-stepper-element="nav" id="step-identity-proof">
+							<!--begin::Line-->
+							<div class="stepper-line w-40px"></div>
+							<!--end::Line-->
+							<!--begin::Icon-->
+							<div class="stepper-icon w-40px h-40px" id="stepper-icon-identity-proof">
+								<i class="stepper-check fas fa-check"></i>
+								<span class="stepper-number">3</span>
+							</div>
+							<!--end::Icon-->
+							<!--begin::Label-->
+							<div class="stepper-label">
+								<h3 class="stepper-title" id="stepper-title-identity-proof" style="cursor: pointer" onclick="getIdentityProofImage()">Identity proof image</h3>
+								<div class="stepper-desc fw-bold">Upload Identity proof image</div>
+							</div>
+							<!--end::Label-->
+						</div>
+						<!--end::Step 3-->
 					</div>
 					<!--end::Nav-->
 				</div>
@@ -72,7 +91,7 @@
 				<!--begin::Form-->
 				<div class="py-20 w-100 w-xl-700px px-9 fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
 					<!--begin::Step 1-->
-					<div data-kt-stepper-element="content" class="current" id="step-content-payee">
+					<div data-kt-stepper-element="content" class="current step-content" id="step-content-payee">
 						<!--begin::Wrapper-->
 						<div class="w-100">
 							<!--begin::Heading-->
@@ -357,14 +376,15 @@
 						<!--end::Wrapper-->
 					</div>
 					<!--end::Step 1-->
+
 					<!--begin::Step 2-->
-					<div data-kt-stepper-element="content" class="pending" id="step-content-employee">
+					<div data-kt-stepper-element="content" class="pending step-content" id="step-content-employee">
 						<!--begin::Wrapper-->
 						<div class="w-100">
 							<!--begin::Heading-->
 							<div class="pb-10 pb-lg-12">
 								<!--begin::Title-->
-								<h2 class="fw-bolder text-dark" onclick="getEmployeeDetail()">Section A: Employee to complete</h2>
+								<h2 class="fw-bolder text-dark" onclick="getEmployeeDetail()">Section B: Employee to complete</h2>
 								<!--end::Title-->
 							</div>
 							<!--end::Heading-->
@@ -378,11 +398,11 @@
 									        <div>I request that all my future superannuation contributions be paid to: (select one)</div>
 									    </label>
 									    <div>
-									        <div class="form-check form-check-inline">
+									        <div class="form-check form-check-inline pb-2">
 									            <input class="form-check-input" type="radio" name="superannuationFund" id="superannuationFund1" value="1">
 									            <label class="form-check-label" for="superannuationFund1">my employer’s superannuation fund named in ‘Section B – Question 6</label>
 									        </div>
-									        <div class="form-check form-check-inline">
+									        <div class="form-check form-check-inline pb-2">
 									            <input class="form-check-input" type="radio" name="superannuationFund" id="superannuationFund2" value="2">
 									            <label class="form-check-label" for="superannuationFund2">my own choice of superannuation fund</label>
 									        </div>
@@ -530,9 +550,65 @@
 						</div>
 						<!--end::Wrapper-->
 					</div>
-					<!--end::Step 2-->
+					<!--end::Step 2-->	
 					
-				<div></div><div></div><div></div><div></div></div>
+					<!--begin::Step 3-->
+					<div data-kt-stepper-element="content" class="pending step-content" id="step-content-identity-proof">
+						<!--begin::Wrapper-->
+						<div class="w-100">
+							<!--begin::Heading-->
+							<div class="pb-10 pb-lg-12">
+								<!--begin::Title-->
+								<h2 class="fw-bolder text-dark" onclick="getIdentityProofImage()">Section C: Identity Proof Image</h2>
+								<!--end::Title-->
+							</div>
+							<!--end::Heading-->
+							<!--begin::Input group-->
+							<div class="group-item">
+								<form id="identityProofForm">
+									<div class="mb-5">
+										<label for="Image" class="form-label">Image (.PNG, .JPG, .JPEG)</label>
+										<input class="form-control" type="file" id="imageFile" name="imageFile" accept="image/*" onchange="preview()">
+										<div class="text-right">
+											<button onclick="clearImage()" class="btn btn-danger mt-3">Clear Image</button>
+										</div>
+										
+									</div>
+									<img id="frame" src="" class="img-fluid" />
+								</form>
+							</div>
+							<!--end::Input group-->
+							<!--begin::Actions-->
+							<div class="d-flex flex-stack pt-10">
+								<!--begin::Wrapper-->
+								<div class="mr-2">
+									<button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous" onclick="getEmployeeDetail()">
+										<!--begin::Svg Icon | path: icons/duotune/arrows/arr063.svg-->
+										<span class="svg-icon svg-icon-4 me-1">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<rect opacity="0.5" x="6" y="11" width="13" height="2" rx="1" fill="black"></rect>
+												<path d="M8.56569 11.4343L12.75 7.25C13.1642 6.83579 13.1642 6.16421 12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75L5.70711 11.2929C5.31658 11.6834 5.31658 12.3166 5.70711 12.7071L11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25C13.1642 17.8358 13.1642 17.1642 12.75 16.75L8.56569 12.5657C8.25327 12.2533 8.25327 11.7467 8.56569 11.4343Z" fill="black"></path>
+											</svg>
+										</span>
+										<!--end::Svg Icon-->Back
+									</button>
+								</div>
+								<!--end::Wrapper-->
+								<!--begin::Wrapper-->
+								<div>
+									<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next" onclick="submitIdentityProofImage()">
+										Save
+										<!--end::Svg Icon-->
+									</button>
+								</div>
+								<!--end::Wrapper-->
+							</div>
+							<!--end::Actions-->
+						</div>
+						<!--end::Wrapper-->
+					</div>
+					<!--end::Step 2-->
+					<div></div><div></div><div></div><div></div></div>
 				<!--end::Form-->
 			</div>
 			<!--end::Content-->
@@ -544,4 +620,5 @@
 
 @section Scripts{
     <script src="~/js/standardInfo.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
 }

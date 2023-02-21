@@ -4,7 +4,8 @@ namespace Enrolment.Requests
 {
     public class EmployerRequest
     {
-        public string BusinessName { get; set; }
+		public string EmailRegister { get; set; }
+		public string BusinessName { get; set; }
         public string BusinessNumber { get; set; }
         public string? Signature { get; set; }
         public string? DeclarationDate { get; set; }

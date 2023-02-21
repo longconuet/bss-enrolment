@@ -4,7 +4,8 @@ namespace Enrolment.Requests
 {
     public class PayerRequest
     {
-        public string BusinessNumber { get; set; }
+		public string EmailRegister { get; set; }
+		public string BusinessNumber { get; set; }
         public string BranchNumber { get; set; }
         public YesNoEnum AppliedForNumber { get; set; }
         public string LegalName { get; set; }
