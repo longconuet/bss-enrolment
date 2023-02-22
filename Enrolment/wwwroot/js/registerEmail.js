@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    //KTApp.showPageLoading();
     $("#register-email-form").validate({
         rules: {
             email: {
@@ -16,8 +17,22 @@
     });
 });
 
+//$(document).ajaxStart(function () {
+//    $.LoadingOverlay("show");
+//});
+//$(document).ajaxStop(function () {
+//    $.LoadingOverlay("hide");
+//});
+
+function showSpinner() {
+    $('#register-email-submit').addClass('spinner spinner-white spinner-right');
+    $('input.form-control').attr('disabled', true);
+}
+
 function registerEmail() {
     if ($("#register-email-form").valid()) {
+        $('#card-register').LoadingOverlay("show");
+
         var email = $('#email').val()
         var postData = {
             Email: email
@@ -54,10 +69,12 @@ function registerEmail() {
                     }
                 }
 
+                $('#card-register').LoadingOverlay("hide");
                 //window.location = url;
             },
             error: function (errormessage) {
                 alert(errormessage.responseText);
+                $('#card-register').LoadingOverlay("hide");
             }
         });
     }

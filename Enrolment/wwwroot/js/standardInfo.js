@@ -466,6 +466,7 @@ function getDetail() {
 }
 
 function getPayeeDetail() {
+    $.LoadingOverlay("show");
     activeStepper('payee');
 
     $.ajax({
@@ -480,7 +481,6 @@ function getPayeeDetail() {
                 return false;
             }
 
-            console.log(result.data);
             if (result.data != null) {
                 var payee = result.data;
                 $('#taxFileNumber').val(payee.taxFileNumber);
@@ -505,9 +505,12 @@ function getPayeeDetail() {
                 $("input[name=claimTaxFree][value=" + payee.claimTaxFree + "]").prop('checked', true);
                 $("input[name=haveLoanProgram][value=" + payee.haveLoanProgram + "]").prop('checked', true);
             }
+
+            $.LoadingOverlay("hide");
         },
         error: function (errormessage) {
             toastr.error(errormessage.responseText, "Error occurred");
+            $.LoadingOverlay("hide");
         }
     });
     return false;
@@ -528,6 +531,7 @@ function activeStepper(item) {
 }
 
 function getEmployeeDetail() {
+    $.LoadingOverlay("show");
     activeStepper('employee');
 
     $.ajax({
@@ -562,9 +566,12 @@ function getEmployeeDetail() {
                     $('#haveAttached').prop('checked', true);
                 }
             }
+
+            $.LoadingOverlay("hide");
         },
         error: function (errormessage) {
             toastr.error(errormessage.responseText, "Error occurred");
+            $.LoadingOverlay("hide");
         }
     });
     return false;
@@ -670,6 +677,8 @@ function submit() {
 
 function submitPayee() {
     if ($("#payeeForm").valid()) {
+        $.LoadingOverlay("show");
+
         var obj = {
             EmailRegister: $('#email-register').val(),
             TaxFileNumber: $('#taxFileNumber').val(),
@@ -708,10 +717,12 @@ function submitPayee() {
                 }
 
                 toastr.success(result.message, 'Success');
+                $.LoadingOverlay("hide");
                 getEmployeeDetail();
             },
             error: function (errormessage) {
                 toastr.error(errormessage.responseText, "Error occurred");
+                $.LoadingOverlay("hide");
             }
         });
     }
@@ -719,6 +730,8 @@ function submitPayee() {
 
 function submitEmployee() {
     if ($("#employeeForm").valid()) {
+        $.LoadingOverlay("show");
+
         var obj = {
             EmailRegister: $('#email-register').val(),
             SuperannuationFund: parseInt($("input[name='superannuationFund']:checked").val()),
@@ -754,16 +767,19 @@ function submitEmployee() {
 
                 toastr.success(result.message, 'Success');
                 //window.location = "/Home/Complete";
+                $.LoadingOverlay("hide");
                 getIdentityProofImage();
             },
             error: function (errormessage) {
                 toastr.error(errormessage.responseText, "Error occurred");
+                $.LoadingOverlay("hide");
             }
         });
     }
 }
 
 function getIdentityProofImage() {
+    $.LoadingOverlay("show");
     activeStepper('identity-proof');
 
     $.ajax({
@@ -782,9 +798,12 @@ function getIdentityProofImage() {
                 $('#imageFile').attr('src', result.data);
                 $('#frame').attr('src', result.data);
             }
+
+            $.LoadingOverlay("hide");
         },
         error: function (errormessage) {
             toastr.error(errormessage.responseText, "Error occurred");
+            $.LoadingOverlay("hide");
         }
     });
     return false;
@@ -792,6 +811,8 @@ function getIdentityProofImage() {
 
 function submitIdentityProofImage() {
     if ($("#identityProofForm").valid()) {
+        $.LoadingOverlay("show");
+
         var files = $('#imageFile')[0].files; //get files
         var formData = new FormData(); //create form
 
@@ -812,10 +833,12 @@ function submitIdentityProofImage() {
                 }
 
                 toastr.success(result.message, 'Success');
+                $.LoadingOverlay("hide");
                 window.location = "/Home/Complete";
             },
             error: function (errormessage) {
                 toastr.error(errormessage.responseText, "Error occurred");
+                $.LoadingOverlay("hide");
             }
         });
     }
