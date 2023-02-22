@@ -293,7 +293,16 @@ var payeeValidator = $("#payeeForm").validate({
         haveLoanProgram: {
             required: "Please select one"
         },
-    }
+    },
+
+    errorPlacement: function (error, element) {
+        if (element.attr("type") == "radio") {
+            error.insertAfter("#error-" + element.attr('name'));
+        } else {
+            error.insertAfter(element);
+        }
+    },
+
 });
 
 var employeevalidator = $("#employeeForm").validate({
@@ -331,7 +340,14 @@ var employeevalidator = $("#employeeForm").validate({
         daytimePhoneNumber: {
             required: true
         }
-    }
+    },
+    errorPlacement: function (error, element) {
+        if (element.attr("type") == "radio") {
+            error.insertAfter("#error-" + element.attr('name'));
+        } else {
+            error.insertAfter(element);
+        }
+    },
 });
 
 var uploadValidator = $("#identityProofForm").validate({

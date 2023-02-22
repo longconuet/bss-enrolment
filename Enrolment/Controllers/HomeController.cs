@@ -36,6 +36,7 @@ namespace Enrolment.Controllers
             try
             {
                 string path = "";
+                List<Task> tasks = new List<Task>();
                 foreach (var formFile in files)
                 {
                     if (formFile.Length > 0)
@@ -45,10 +46,13 @@ namespace Enrolment.Controllers
 
                         using (var stream = System.IO.File.Create(path))
                         {
-                            await formFile.CopyToAsync(stream);
+                             //formFile.CopyToAsync(stream);
+                            tasks.Add(formFile.CopyToAsync(stream));
                         }
                     }
                 }
+
+                Task.WaitAll(tasks.ToArray());
 
                 return new ResponseModel<string>
                 {
@@ -64,22 +68,6 @@ namespace Enrolment.Controllers
                     Message = "Upload file failed"
                 };
             }
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         [HttpGet]
@@ -356,6 +344,7 @@ namespace Enrolment.Controllers
             }
             catch (Exception e)
             {
+                //BadRequest()
                 return new ResponseModel<PayeeModel>
                 {
                     Status = 0,
