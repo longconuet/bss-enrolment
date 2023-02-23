@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GSIlTXc+HgI8uOrzDr7QUPVV+Aqt3SfIvgKb4T68v1I=",
+  "Hash": "CPj6jQ0ak3Vf4CipZuJRfAXf2yB6p2F5AHaWXAZLKQA=",
   "Source": "Enrolment",
   "BasePath": "_content/Enrolment",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\images\\2566x14402.png",
+      "SourceId": "Enrolment",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\",
+      "BasePath": "_content/Enrolment",
+      "RelativePath": "images/2566x14402.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\2566x14402.png"
     },
     {
       "Identity": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\images\\photo-1533450718592-29d45635f0a9.jpg",

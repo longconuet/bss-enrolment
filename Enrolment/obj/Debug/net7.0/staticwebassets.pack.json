@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\images\\2566x14402.png",
+      "PackagePath": "staticwebassets\\images\\2566x14402.png"
+    },
+    {
       "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\images\\Visa-b2.png",
       "PackagePath": "staticwebassets\\images\\Visa-b2.png"
     },

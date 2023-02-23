@@ -31,7 +31,7 @@ function showSpinner() {
 
 function registerEmail() {
     if ($("#register-email-form").valid()) {
-        $('#card-register').LoadingOverlay("show");
+        $.LoadingOverlay("show");
 
         var email = $('#email').val()
         var postData = {
@@ -69,12 +69,12 @@ function registerEmail() {
                     }
                 }
 
-                $('#card-register').LoadingOverlay("hide");
+                $.LoadingOverlay("hide");
                 //window.location = url;
             },
             error: function (errormessage) {
                 alert(errormessage.responseText);
-                $('#card-register').LoadingOverlay("hide");
+                $.LoadingOverlay("hide");
             }
         });
     }

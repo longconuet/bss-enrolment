@@ -863,7 +863,13 @@ function submitIdentityProofImage() {
 function preview() {
     frame.src = URL.createObjectURL(event.target.files[0]);
 }
+
 function clearImage() {
     document.getElementById('imageFile').value = null;
     frame.src = "";
+}
+
+function scollToTop() {
+    $("html, body").animate({ scrollTop: 0 }, 1000);
+    return false;
 }
