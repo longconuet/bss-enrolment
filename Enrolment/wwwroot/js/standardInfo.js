@@ -504,9 +504,9 @@ function getDetail() {
 }
 
 function getPayeeStep() {
-    if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
-        $('#kt_header_menu_mobile_toggle').click();
-    }
+    //if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
+    //    $('#kt_header_menu_mobile_toggle').click();
+    //}
     
     if (inputChangeFlag) {
         if (confirm("Form data has changed. Do you want to discard this changes") == false) {
@@ -596,9 +596,9 @@ function activeStepper(item) {
 }
 
 function getEmployeeStep() {
-    if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
-        $('#kt_header_menu_mobile_toggle').click();
-    }
+    //if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
+    //    $('#kt_header_menu_mobile_toggle').click();
+    //}
 
     if (inputChangeFlag) {
         if (confirm("Form data has changed. Do you want to discard this changes") == false) {
