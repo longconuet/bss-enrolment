@@ -3,7 +3,7 @@
 *@
 @{
     ViewBag.Title = "Standard Info Form";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
 @section Style{
@@ -11,7 +11,7 @@
 }
 
 
-<nav class="floating-menu">
+@*<nav class="floating-menu">
 	<input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
 	<label class="menu-open-button" for="menu-open">
 		<span class="hamburger hamburger-1"></span>
@@ -23,16 +23,46 @@
 	<a href="#" class="menu-item" title="Employee" onclick="getEmployeeDetail()"> 2 </a>
 	<a href="#" class="menu-item" title="Identity proof image" onclick="getIdentityProofImage()"> 3 </a>
 </nav>
-<div class="clear-fix"></div>
+<div class="clear-fix"></div>*@
+
+@section NavbarMenu{
+	<div class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch" id="#kt_header_menu" data-kt-menu="true">
+		<div class="menu-item me-lg-1">
+			<a class="menu-link py-3" href="#" onclick="getPayeeStep()">
+				<span class="menu-title">1. Payee</span>
+			</a>
+		</div>
+		<div class="menu-item me-lg-1">
+			<a class="menu-link py-3" href="#" onclick="getEmployeeStep()">
+				<span class="menu-title">2. Employee</span>
+			</a>
+		</div>
+		<div class="menu-item me-lg-1">
+			<a class="menu-link py-3" href="#" onclick="getIdentityProofImageStep()">
+				<span class="menu-title">3. Upload image</span>
+			</a>
+		</div>
+	</div>
+}
+
+@section HeaderMenuToggle{
+	<div class="d-flex align-items-center d-lg-none ms-2" title="Show header menu">
+		<div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px" id="kt_header_menu_mobile_toggle" style="background: #61d9ce">
+			<!--begin::Svg Icon | path: icons/duotune/text/txt001.svg-->
+			<span class="svg-icon svg-icon-1">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<path d="M13 11H3C2.4 11 2 10.6 2 10V9C2 8.4 2.4 8 3 8H13C13.6 8 14 8.4 14 9V10C14 10.6 13.6 11 13 11ZM22 5V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4V5C2 5.6 2.4 6 3 6H21C21.6 6 22 5.6 22 5Z" fill="#fff" />
+					<path d="M21 16H3C2.4 16 2 15.6 2 15V14C2 13.4 2.4 13 3 13H21C21.6 13 22 13.4 22 14V15C22 15.6 21.6 16 21 16ZM14 20V19C14 18.4 13.6 18 13 18H3C2.4 18 2 18.4 2 19V20C2 20.6 2.4 21 3 21H13C13.6 21 14 20.6 14 20Z" fill="#fff" />
+				</svg>
+			</span>
+			<!--end::Svg Icon-->
+		</div>
+	</div>
+}
 
 <input hidden id="email-register" value="@ViewBag.Email"></input>
-<div class="post d-flex flex-column-fluid" id="kt_post">
-	
-
-	<!--begin::Container-->
-	<div id="kt_content_container" class="container-xxl">
 		<!--begin::Stepper-->
-		<div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid between" data-kt-stepper="true">
+		<div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid between mb-10" data-kt-stepper="true">
 			<!--begin::Aside-->
 			<div class="d-flex justify-content-center bg-body rounded justify-content-xl-start flex-row-auto w-100 w-xl-300px w-xxl-400px me-9 mt-5" id="step-aside">
 				<!--begin::Wrapper-->
@@ -52,7 +82,7 @@
 							<!--end::Icon-->
 							<!--begin::Label-->
 							<div class="stepper-label">
-								<h3 class="stepper-title" id="stepper-title-payee" style="cursor: pointer" onclick="getPayeeDetail()">Payee</h3>
+								<h3 class="stepper-title" id="stepper-title-payee" style="cursor: pointer" onclick="getPayeeStep()">Payee</h3>
 								<div class="stepper-desc fw-bold">To be completed by the PAYEE</div>
 							</div>
 							<!--end::Label-->
@@ -71,7 +101,7 @@
 							<!--end::Icon-->
 							<!--begin::Label-->
 							<div class="stepper-label">
-								<h3 class="stepper-title" id="stepper-title-employee" style="cursor: pointer" onclick="getEmployeeDetail()">Employee</h3>
+								<h3 class="stepper-title" id="stepper-title-employee" style="cursor: pointer" onclick="getEmployeeStep()">Employee</h3>
 								<div class="stepper-desc fw-bold">Employee to complete</div>
 							</div>
 							<!--end::Label-->
@@ -90,7 +120,7 @@
 							<!--end::Icon-->
 							<!--begin::Label-->
 							<div class="stepper-label">
-								<h3 class="stepper-title" id="stepper-title-identity-proof" style="cursor: pointer" onclick="getIdentityProofImage()">Identity proof image</h3>
+								<h3 class="stepper-title" id="stepper-title-identity-proof" style="cursor: pointer" onclick="getIdentityProofImageStep()">Identity proof image</h3>
 								<div class="stepper-desc fw-bold">Upload Identity proof image</div>
 							</div>
 							<!--end::Label-->
@@ -541,7 +571,7 @@
 							<div class="d-flex flex-stack pt-10">
 								<!--begin::Wrapper-->
 								<div class="mr-2">
-									<button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous" onclick="getPayeeDetail()">
+									<button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous" onclick="getPayeeStep()">
 										<!--begin::Svg Icon | path: icons/duotune/arrows/arr063.svg-->
 										<span class="svg-icon svg-icon-4 me-1">
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -605,7 +635,7 @@
 							<div class="d-flex flex-stack pt-10">
 								<!--begin::Wrapper-->
 								<div class="mr-2">
-									<button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous" onclick="getEmployeeDetail()">
+									<button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous" onclick="getEmployeeStep()">
 										<!--begin::Svg Icon | path: icons/duotune/arrows/arr063.svg-->
 										<span class="svg-icon svg-icon-4 me-1">
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -637,9 +667,6 @@
 			<!--end::Content-->
 		</div>
 		<!--end::Stepper-->
-	</div>
-	<!--end::Container-->
-</div>
 
 @section Scripts{
     <script src="~/js/standardInfo.js"></script>

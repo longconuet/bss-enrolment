@@ -1,5 +1,27 @@
+var inputChangeFlag = false;
+
+function checkInputChange() {
+    if (inputChangeFlag) {
+        if (confirm("Discard changed") == true) {
+            alert("Discard");
+        } else {
+            alert("continue");
+        }
+    }
+}
+
 $(document).ready(function () {
-    getPayeeDetail();
+    
+    //$('input').change(function () {
+    //    if (confirm("Discard changed") == true) {
+    //        alert("Discard");
+    //    } else {
+    //        alert("continue");
+    //    }
+
+    //});
+
+    getPayeeStep();
 });
 
 var validator = $("#form-info").validate({
@@ -481,9 +503,35 @@ function getDetail() {
     return false;
 }
 
+function getPayeeStep() {
+    if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
+        $('#kt_header_menu_mobile_toggle').click();
+    }
+    
+    if (inputChangeFlag) {
+        if (confirm("Form data has changed. Do you want to discard this changes") == false) {
+            return false;
+        }
+    }
+
+    setFormChange();
+
+    // load data
+    getPayeeDetail();
+
+    inputChangeFlag = false;
+}
+
+function setFormChange() {
+    $('input, select').change(function () {
+        inputChangeFlag = true;
+    });
+}
+
 function getPayeeDetail() {
     $.LoadingOverlay("show");
     activeStepper('payee');
+    scollToTop();
 
     $.ajax({
         url: "/Home/PayeeDetail/" + $('#email-register').val(),
@@ -529,6 +577,7 @@ function getPayeeDetail() {
             $.LoadingOverlay("hide");
         }
     });
+    
     return false;
 }
 
@@ -546,8 +595,28 @@ function activeStepper(item) {
     $('#stepper-title-' + item).addClass('stepper-title-active');
 }
 
+function getEmployeeStep() {
+    if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
+        $('#kt_header_menu_mobile_toggle').click();
+    }
+
+    if (inputChangeFlag) {
+        if (confirm("Form data has changed. Do you want to discard this changes") == false) {
+            return false;
+        }
+    }
+
+    setFormChange();
+
+    // load data
+    getEmployeeDetail();
+
+    inputChangeFlag = false;
+}
+
 function getEmployeeDetail() {
     $.LoadingOverlay("show");
+    scollToTop();
     activeStepper('employee');
 
     $.ajax({
@@ -794,8 +863,28 @@ function submitEmployee() {
     }
 }
 
+function getIdentityProofImageStep() {
+    if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
+        $('#kt_header_menu_mobile_toggle').click();
+    }
+
+    if (inputChangeFlag) {
+        if (confirm("Form data has changed. Do you want to discard this changes") == false) {
+            return false;
+        }
+    }
+
+    setFormChange();
+
+    // load data
+    getIdentityProofImage();
+
+    inputChangeFlag = false;
+}
+
 function getIdentityProofImage() {
     $.LoadingOverlay("show");
+    scollToTop();
     activeStepper('identity-proof');
 
     $.ajax({

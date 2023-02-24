@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CPj6jQ0ak3Vf4CipZuJRfAXf2yB6p2F5AHaWXAZLKQA=",
+  "Hash": "CZe/ho7d+PG+P+Z+k+WBlY/67YrzaLZKjGE3BNj+1Yw=",
   "Source": "Enrolment",
   "BasePath": "_content/Enrolment",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\css\\site1.css",
+      "SourceId": "Enrolment",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\",
+      "BasePath": "_content/Enrolment",
+      "RelativePath": "css/site1.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site1.css"
     },
     {
       "Identity": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\css\\studentDetail.css",

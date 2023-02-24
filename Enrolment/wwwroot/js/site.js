@@ -9,3 +9,7 @@ $(document).ready(function () {
         imageAnimation: ""
     });
 });
+
+$('.img-header').on('click', function () {
+    window.location = "/Home/RegisterEmail";
+});

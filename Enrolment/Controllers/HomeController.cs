@@ -71,6 +71,12 @@ namespace Enrolment.Controllers
         }
 
         [HttpGet]
+        public IActionResult Demo()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult RegisterEmail()
         {
             return View();

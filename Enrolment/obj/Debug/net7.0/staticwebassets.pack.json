@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\css\\site1.css",
+      "PackagePath": "staticwebassets\\css\\site1.css"
+    },
+    {
       "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\css\\studentDetail.css",
       "PackagePath": "staticwebassets\\css\\studentDetail.css"
     },
