@@ -1,4 +1,5 @@
 var inputChangeFlag = false;
+var showSideBar = false;
 
 function checkInputChange() {
     if (inputChangeFlag) {
@@ -503,10 +504,28 @@ function getDetail() {
     return false;
 }
 
-function getPayeeStep() {
+function hideSideBar() {
+    if (showSideBar) {
+        $('#openSidebarMenu').click();
+        showSideBar = false;
+    }
+    clickSidebar();
+}
+
+function clickSidebar() {
+    showSideBar = !showSideBar;
+}
+
+function getPayeeStep(sideBarClick = false) {
     //if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
     //    $('#kt_header_menu_mobile_toggle').click();
     //}
+
+    if (sideBarClick) {
+        hideSideBar();
+    }
+    
+    console.log(inputChangeFlag);
     
     if (inputChangeFlag) {
         if (confirm("Form data has changed. Do you want to discard this changes") == false) {
@@ -523,7 +542,8 @@ function getPayeeStep() {
 }
 
 function setFormChange() {
-    $('input, select').change(function () {
+    $('#content-side input, #content-side select').change(function (e) {
+        console.log(e);
         inputChangeFlag = true;
     });
 }
@@ -541,7 +561,7 @@ function getPayeeDetail() {
         success: function (result) {
             if (result.status == 0) {
                 toastr.error(result.message, "Error");
-                window.location = "/Home/RegisterEmail";
+                //window.location = "/Home/RegisterEmail";
                 return false;
             }
 
@@ -595,10 +615,10 @@ function activeStepper(item) {
     $('#stepper-title-' + item).addClass('stepper-title-active');
 }
 
-function getEmployeeStep() {
-    //if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
-    //    $('#kt_header_menu_mobile_toggle').click();
-    //}
+function getEmployeeStep(sideBarClick = false) {
+    if (sideBarClick) {
+        hideSideBar();
+    }
 
     if (inputChangeFlag) {
         if (confirm("Form data has changed. Do you want to discard this changes") == false) {
@@ -863,9 +883,9 @@ function submitEmployee() {
     }
 }
 
-function getIdentityProofImageStep() {
-    if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
-        $('#kt_header_menu_mobile_toggle').click();
+function getIdentityProofImageStep(sideBarClick = false) {
+    if (sideBarClick) {
+        hideSideBar();
     }
 
     if (inputChangeFlag) {

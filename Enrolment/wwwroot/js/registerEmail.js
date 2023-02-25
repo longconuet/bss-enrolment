@@ -49,6 +49,7 @@ function registerEmail() {
             success: function (result) {
                 if (result.status == 0) {
                     toastr.error(result.message, "Error");
+                    $.LoadingOverlay("hide");
                     return false;
                 }
 
