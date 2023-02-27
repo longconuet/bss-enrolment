@@ -536,7 +536,6 @@ function getPayeeStep(sideBarClick = false) {
 
 function setFormChange() {
     $('#content-side input, #content-side select').change(function (e) {
-        console.log(e);
         inputChangeFlag = true;
     });
 }
