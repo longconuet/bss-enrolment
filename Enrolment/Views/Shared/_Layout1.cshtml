@@ -21,8 +21,8 @@ License: For each use you must have a valid license purchased only from above li
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--end::Page Vendor Stylesheets-->
-		<link href="~/css/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="~/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="~/lib/css/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="~/lib/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 		<link rel="stylesheet" href="~/css/site1.css" asp-append-version="true" />
 		<style>
@@ -47,7 +47,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Aside mobile toggle-->
 							<!--begin::Logo-->
 							<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
-								<img alt="Logo" src="https://booking.newcollege.com.au/Images/logo3.png" class="img-header" />
+								<img alt="Logo" src="~/img/logo3.png" class="img-header" />
 							</div>
 							<!--end::Logo-->
 							<!--begin::Wrapper-->
@@ -131,11 +131,11 @@ License: For each use you must have a valid license purchased only from above li
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Javascript-->
 		<script src="~/lib/jquery/dist/jquery.min.js"></script>
-		<script src="~/js/scripts.bundle.js" asp-append-version="true"></script>
-		<script src="~/js/plugins.bundle.js" asp-append-version="true"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+		<script src="~/lib/js/scripts.bundle.js" asp-append-version="true"></script>
+		<script src="~/lib/js/plugins.bundle.js" asp-append-version="true"></script>
+		<script src="~/lib/js/toastr.min.js"></script>
+		<script src="~/lib/js/jquery.validate.min.js"></script>
+		<script src="~/lib/js/loadingoverlay.min.js"></script>
 		<script src="~/js/site.js" asp-append-version="true"></script>
 
 	@await RenderSectionAsync("Scripts", required: false)

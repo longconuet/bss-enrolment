@@ -59,7 +59,7 @@
 }
 
 <div>
-	<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+	<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" onclick="clickSidebar()">
 	<label for="openSidebarMenu" class="sidebarIconToggle">
 		<div class="spinner diagonal part-1"></div>
 		<div class="spinner horizontal"></div>
@@ -67,9 +67,9 @@
 	</label>
 	<div id="sidebarMenu">
 		<ul class="sidebarMenuInner">
-			<li><a href="#" onclick="getPayeeStep(true)">1. Payee</a></li>
-			<li><a href="#" onclick="getEmployeeStep(true)">2. Employee</a></li>
-			<li><a href="#" onclick="getIdentityProofImageStep(true)">3. Upload image</a></li> 
+			<li><a href="javascript:void(0);" onclick="getPayeeStep(true)">1. Payee</a></li>
+			<li><a href="javascript:void(0);" onclick="getEmployeeStep(true)">2. Employee</a></li>
+			<li><a href="javascript:void(0);" onclick="getIdentityProofImageStep(true)">3. Upload image</a></li>
 		</ul>
 	</div>
 </div>

@@ -509,7 +509,6 @@ function hideSideBar() {
         $('#openSidebarMenu').click();
         showSideBar = false;
     }
-    clickSidebar();
 }
 
 function clickSidebar() {
@@ -517,15 +516,9 @@ function clickSidebar() {
 }
 
 function getPayeeStep(sideBarClick = false) {
-    //if ($('#kt_header_menu_mobile_toggle').hasClass('active')) {
-    //    $('#kt_header_menu_mobile_toggle').click();
-    //}
-
     if (sideBarClick) {
         hideSideBar();
     }
-    
-    console.log(inputChangeFlag);
     
     if (inputChangeFlag) {
         if (confirm("Form data has changed. Do you want to discard this changes") == false) {
@@ -559,9 +552,10 @@ function getPayeeDetail() {
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
         success: function (result) {
+            $.LoadingOverlay("hide");
             if (result.status == 0) {
                 toastr.error(result.message, "Error");
-                //window.location = "/Home/RegisterEmail";
+                window.location = "/Home/RegisterEmail";
                 return false;
             }
 
@@ -589,8 +583,6 @@ function getPayeeDetail() {
                 $("input[name=claimTaxFree][value=" + payee.claimTaxFree + "]").prop('checked', true);
                 $("input[name=haveLoanProgram][value=" + payee.haveLoanProgram + "]").prop('checked', true);
             }
-
-            $.LoadingOverlay("hide");
         },
         error: function (errormessage) {
             toastr.error(errormessage.responseText, "Error occurred");
@@ -645,6 +637,7 @@ function getEmployeeDetail() {
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
         success: function (result) {
+            $.LoadingOverlay("hide");
             if (result.status == 0) {
                 toastr.error(result.message, "Error");
                 window.location = "/Home/RegisterEmail";
@@ -671,8 +664,6 @@ function getEmployeeDetail() {
                     $('#haveAttached').prop('checked', true);
                 }
             }
-
-            $.LoadingOverlay("hide");
         },
         error: function (errormessage) {
             toastr.error(errormessage.responseText, "Error occurred");
@@ -816,13 +807,15 @@ function submitPayee() {
             async: true,
             processData: false,
             success: function (result) {
+                $.LoadingOverlay("hide");
+
                 if (result.status == 0) {
                     toastr.error(result.message, "Error");
                     return false;
                 }
 
                 toastr.success(result.message, 'Success');
-                $.LoadingOverlay("hide");
+                inputChangeFlag = false;
                 getEmployeeDetail();
             },
             error: function (errormessage) {
@@ -865,6 +858,7 @@ function submitEmployee() {
             async: true,
             processData: false,
             success: function (result) {
+                $.LoadingOverlay("hide");
                 if (result.status == 0) {
                     toastr.error(result.message, "Error");
                     return false;
@@ -872,7 +866,7 @@ function submitEmployee() {
 
                 toastr.success(result.message, 'Success');
                 //window.location = "/Home/Complete";
-                $.LoadingOverlay("hide");
+                inputChangeFlag = false;
                 getIdentityProofImage();
             },
             error: function (errormessage) {
@@ -913,6 +907,7 @@ function getIdentityProofImage() {
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
         success: function (result) {
+            $.LoadingOverlay("hide");
             if (result.status == 0) {
                 toastr.error(result.message, "Error");
                 window.location = "/Home/RegisterEmail";
@@ -923,8 +918,6 @@ function getIdentityProofImage() {
                 $('#imageFile').attr('src', result.data);
                 $('#frame').attr('src', result.data);
             }
-
-            $.LoadingOverlay("hide");
         },
         error: function (errormessage) {
             toastr.error(errormessage.responseText, "Error occurred");
@@ -952,13 +945,14 @@ function submitIdentityProofImage() {
             async: true,
             processData: false,
             success: function (result) {
+                $.LoadingOverlay("hide");
                 if (result.status == 0) {
                     toastr.error(result.message, "Error");
                     return false;
                 }
 
                 toastr.success(result.message, 'Success');
-                $.LoadingOverlay("hide");
+                inputChangeFlag = false;
                 window.location = "/Home/Complete";
             },
             error: function (errormessage) {
