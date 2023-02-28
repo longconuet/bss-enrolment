@@ -5,14 +5,6 @@
       "PackagePath": "staticwebassets\\Enrolment.bundle.scp.css"
     },
     {
-      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\css\\plugins.bundle.css",
-      "PackagePath": "staticwebassets\\css\\plugins.bundle.css"
-    },
-    {
-      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\css\\plugins.bundle.css.map",
-      "PackagePath": "staticwebassets\\css\\plugins.bundle.css.map"
-    },
-    {
       "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -23,14 +15,6 @@
     {
       "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\css\\studentDetail.css",
       "PackagePath": "staticwebassets\\css\\studentDetail.css"
-    },
-    {
-      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\css\\style.bundle.css",
-      "PackagePath": "staticwebassets\\css\\style.bundle.css"
-    },
-    {
-      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\css\\style.bundle.css.map",
-      "PackagePath": "staticwebassets\\css\\style.bundle.css.map"
     },
     {
       "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\favicon.ico",
@@ -69,32 +53,12 @@
       "PackagePath": "staticwebassets\\img\\loading3.gif"
     },
     {
-      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\js\\landing.js",
-      "PackagePath": "staticwebassets\\js\\landing.js"
-    },
-    {
-      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\js\\landing.js.map",
-      "PackagePath": "staticwebassets\\js\\landing.js.map"
-    },
-    {
-      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\js\\plugins.bundle.js",
-      "PackagePath": "staticwebassets\\js\\plugins.bundle.js"
-    },
-    {
-      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\js\\plugins.bundle.js.map",
-      "PackagePath": "staticwebassets\\js\\plugins.bundle.js.map"
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\img\\logo3.png",
+      "PackagePath": "staticwebassets\\img\\logo3.png"
     },
     {
       "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\js\\registerEmail.js",
       "PackagePath": "staticwebassets\\js\\registerEmail.js"
-    },
-    {
-      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\js\\scripts.bundle.js",
-      "PackagePath": "staticwebassets\\js\\scripts.bundle.js"
-    },
-    {
-      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\js\\scripts.bundle.js.map",
-      "PackagePath": "staticwebassets\\js\\scripts.bundle.js.map"
     },
     {
       "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\js\\site.js",
@@ -289,6 +253,26 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\css\\plugins.bundle.css",
+      "PackagePath": "staticwebassets\\lib\\css\\plugins.bundle.css"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\css\\plugins.bundle.css.map",
+      "PackagePath": "staticwebassets\\lib\\css\\plugins.bundle.css.map"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\css\\style.bundle.css",
+      "PackagePath": "staticwebassets\\lib\\css\\style.bundle.css"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\css\\style.bundle.css.map",
+      "PackagePath": "staticwebassets\\lib\\css\\style.bundle.css.map"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\css\\toastr.min.css",
+      "PackagePath": "staticwebassets\\lib\\css\\toastr.min.css"
+    },
+    {
       "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
@@ -335,6 +319,34 @@
     {
       "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\js\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\js\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\js\\loadingoverlay.min.js",
+      "PackagePath": "staticwebassets\\lib\\js\\loadingoverlay.min.js"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\js\\plugins.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\js\\plugins.bundle.js"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\js\\plugins.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\js\\plugins.bundle.js.map"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\js\\scripts.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\js\\scripts.bundle.js"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\js\\scripts.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\js\\scripts.bundle.js.map"
+    },
+    {
+      "Id": "D:\\git-bss\\bss-enrolment\\Enrolment\\wwwroot\\lib\\js\\toastr.min.js",
+      "PackagePath": "staticwebassets\\lib\\js\\toastr.min.js"
     },
     {
       "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.Enrolment.Microsoft.AspNetCore.StaticWebAssets.props",

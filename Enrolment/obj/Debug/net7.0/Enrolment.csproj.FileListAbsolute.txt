@@ -238,3 +238,8 @@ D:\git-bss\bss-enrolment\Enrolment\obj\Debug\net7.0\refint\Enrolment.dll
 D:\git-bss\bss-enrolment\Enrolment\obj\Debug\net7.0\Enrolment.pdb
 D:\git-bss\bss-enrolment\Enrolment\obj\Debug\net7.0\Enrolment.genruntimeconfig.cache
 D:\git-bss\bss-enrolment\Enrolment\obj\Debug\net7.0\ref\Enrolment.dll
+D:\git-bss\bss-enrolment\Enrolment\bin\Debug\net7.0\bin1\appsettings.Development.json
+D:\git-bss\bss-enrolment\Enrolment\bin\Debug\net7.0\bin1\appsettings.json
+D:\git-bss\bss-enrolment\Enrolment\bin\Debug\net7.0\bin1\Enrolment.deps.json
+D:\git-bss\bss-enrolment\Enrolment\bin\Debug\net7.0\bin1\Enrolment.runtimeconfig.json
+D:\git-bss\bss-enrolment\Enrolment\bin\Debug\net7.0\bin1\Enrolment.staticwebassets.runtime.json

@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\git-bss\publish\enrolment</_PublishTargetUrl>
-    <History>True|2023-02-27T02:44:59.5607035Z;</History>
+    <History>True|2023-02-28T06:25:15.9881825Z;True|2023-02-27T09:44:59.5607035+07:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

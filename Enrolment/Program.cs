@@ -43,4 +43,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=RegisterEmail}/{id?}");
 
+using var scope = app.Services.CreateScope();
+var service = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+service.Database.Migrate();
+
 app.Run();
